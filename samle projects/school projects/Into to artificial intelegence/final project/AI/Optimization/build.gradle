@@ -1,0 +1,85 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin:'application'
+//apply plugin: 'checkstyle'
+
+version = '0.1'
+
+group = 'com.epam'
+
+mainClassName = 'com.epam.runner.OptimizationModifier'
+
+repositories {
+// uncomment to use public maven repository
+//    mavenCentral()
+//    maven {
+//        url 'http://maven.restlet.org'
+//    }
+
+    // offline repository
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+//checkstyle {
+//    ignoreFailures = true
+//}
+
+configurations {
+    compile.exclude module: 'commons-logging'
+}
+
+dependencies {
+    compile (
+            'org.apache.camel:camel-restlet:2.14.0',
+            'ch.qos.logback:logback-classic:1.1.2',
+            'org.apache.camel:camel-spring:2.14.0',
+            'org.apache.camel:camel-jackson:2.10.4',
+            'org.apache.commons:commons-lang3:3.0', // for StringUtils.join
+            'com.puppycrawl.tools:checkstyle:5.7',
+            'org.slf4j:jcl-over-slf4j:1.7.6', // spring
+            'org.slf4j:jul-to-slf4j:1.7.6', // org.restlet
+
+            //offline mode
+            fileTree(dir: 'libs', include: '*.jar')
+    )
+
+    testCompile 'junit:junit:4.11'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.epam.runner.OptimizationModifier'
+    }
+}
+
+// These JVM arguments are applied to the run task and also considered in the generated start scripts of your distribution.
+// Here you can change default values
+applicationDefaultJvmArgs = [
+//       '-DIS_IN_LOCAL_MODE=false',
+//      '-DGAME_ENGINE_HOSTNAME=localhost',
+//      '-DGAME_ENGINE_PORT=8080',
+//      '-DPORT=8081',
+]
+
+// to install the wrapper into project
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+// to extract dependencies from cache
+task extractDeps() << {
+    copy {
+        delete('libs')
+        mkdir('libs')
+        println '>> Downloading and saving dependencies for offline mode'
+
+        configurations.all*.each() {
+            println it
+            from it
+        }
+
+        into 'libs'
+    }
+}

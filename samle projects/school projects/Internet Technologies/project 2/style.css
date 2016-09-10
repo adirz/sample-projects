@@ -1,0 +1,15 @@
+div#page1 {
+    visibility: visible;
+	text-align: center;
+}
+div#page2 {
+    visibility: hidden;
+}
+div#page3 {
+    visibility: hidden;
+}
+
+img {
+	height: 300px;
+	width: 400px;
+}

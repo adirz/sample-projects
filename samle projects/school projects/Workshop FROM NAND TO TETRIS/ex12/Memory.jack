@@ -1,0 +1,163 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * Memory operations library.
+ */ 
+class Memory {
+    // all of the memory. 
+    // before each allocated block there is a cell with the number of free spots after it
+    static Array memory;
+    // each free block starts with a cell with the number of free spots after it and a cell
+    // with the location of the next free block
+    static Array freeList;
+    static Array head;
+
+    static int heapBase;
+    static int heapLast;
+    static int length_location;
+    static int next_location;
+
+    /** Initializes memory parameters. */
+    function void init() {
+		// constants used
+		let heapBase = 2048;
+		let heapLast = 16384;
+		let length_location = 0; // location of length of allocated
+		let next_location = 1; // location of the next allocated spot
+		
+		let head = heapBase;
+		let head[length_location] = 2;
+		let head[next_location] = heapBase + 2;
+
+		let freeList = heapBase + 2;
+		let freeList[length_location] = heapLast - heapBase - 2;
+		let freeList[next_location] = null;
+		let memory = 0;
+	
+		return;
+    }
+
+    /** Returns the value of the main memory at the given address. */
+    function int peek(int address) {
+		return memory[address];
+    }
+
+    /** Sets the value of the main memory at this address
+     *  to the given value. */
+    function void poke(int address, int value) {
+		let memory[address] = value;
+		return;
+    }
+
+    /** Finds the first place in memory where
+     *  it have enough room of 'size' allocation
+     *  and returns the one that points to it. */
+    function Array firstFit(int size) {
+		var Array current;
+		var Array previous;
+		var int current_size;
+		
+		let previous = head;
+		let current = freeList;
+		while ( ~(current = null) ) {
+		    let current_size = current[length_location];
+		    if ( ~ (current_size < size) ) {
+				return previous;
+		    }
+		    let previous = current;
+		    let current = current[next_location];
+		}
+
+		return null;
+    }
+
+    /** Finds the smallest place in memory where
+     *  it have enough room of 'size' allocation
+     *  and returns the one that points to it. */
+    function Array bestFit(int size) {
+		var Array previous;
+		var Array best_fit;
+		var Array pre_best_fit;
+		var Array current;
+		var int best_size;
+		var int current_size;
+	
+		let pre_best_fit = Memory.firstFit(size);
+		if ( pre_best_fit = null) {
+		    return null;
+		}
+	
+		let best_fit = pre_best_fit[next_location]; 
+		let best_size = best_fit[length_location];
+		let current = best_fit[next_location];
+
+		while ( ~(current = null) ) {
+		    let current_size = current[length_location];
+		    if ( (current_size < best_size) & ~ (current_size < size) ) {
+				let best_size = current_size;
+				let pre_best_fit = previous;
+		    }
+		    let previous = current;
+		    let current = current[next_location];
+		}
+
+		return pre_best_fit;
+    }
+
+    /** finds and allocates from the heap a memory block of the 
+     *  specified size and returns a reference to its base address. */
+    function int alloc(int size) {
+		var Array previous;
+		var Array allocated_block;
+		var Array next;
+
+		// '1' is for the place to keep length_location
+		let previous = Memory.bestFit(size + 1);
+		if ( previous = null ) {
+		}
+
+		let allocated_block = previous[next_location];
+		let next = allocated_block + size + 1;
+		let next[length_location] = allocated_block[length_location] - (size + 1);
+		let allocated_block[length_location] = size + 1;
+		let previous[next_location] = next;
+
+		return allocated_block + 1;
+    }
+
+    function Array findPrevious(Array block) {
+		var Array current;
+		var int current_size;
+
+		let current = freeList;
+
+		while ( ~(block < current[next_location]) ) {
+	    	let current = current[next_location];
+	    	if ( current = null ) {
+				return null;
+	    	}
+		}
+	
+		return current;
+    }
+
+    /** De-allocates the given object and frees its space. */
+    function void deAlloc(int object) {
+		var Array previous;
+		var Array segment;
+
+		let segment = object - 1;
+		let previous = Memory.findPrevious(segment);
+
+		if ( previous + previous[length_location] = segment ) {
+		    let previous[length_location] = previous[length_location] + segment[length_location];
+			return;
+		}
+		let segment[next_location] = previous[next_location];
+	    let previous[next_location] = segment;
+		return;
+    }    
+}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- bridge spring property placeholder with Camel -->
+    <!-- you must NOT use the <context:property-placeholder at the same time, only this bridge bean -->
+    <bean id="bridgePropertyPlaceholder" class="org.apache.camel.spring.spi.BridgePropertyPlaceholderConfigurer">
+        <property name="properties">
+            <props>
+                <!-- by default game.server=http://localhost:8080 -->
+                <prop key="game.server">http://${GAME_ENGINE_HOSTNAME:localhost}:${GAME_ENGINE_PORT:8080}</prop>
+                <!-- by default runner.server=http://localhost:8081 -->
+                <prop key="runner.server">http://localhost:8081</prop>
+                <prop key="local.mode">${IS_IN_LOCAL_MODE:true}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="runner" class="com.epam.runner.Runner"/>
+
+
+    <util:list id="serverUris" value-type="java.lang.String">
+        <value>/api/game/start</value>
+        <value>/api/bot/ready</value>
+    </util:list>
+
+    <camel:camelContext id="runnerCamel">
+        <camel:template id="producer" defaultEndpoint="direct:sendToServer"/>
+        <camel:dataFormats>
+            <camel:json id="jack" library="Jackson"/>
+        </camel:dataFormats>
+        <camel:route id="start">
+            <camel:from uri="direct:sendToServer"/>
+            <camel:log
+                    message=">> ENVIRONMENT: \n\tGAME SERVER: {{game.server}}\n\tRUNNER SERVER: {{runner.server}}\n\tLOCAL MODE: {{local.mode}}"/>
+            <camel:log message=">> Sending initial requests to Game Server..."/>
+
+            <!--
+                 -1. if IS_IN_LOCAL_MODE POST server:port/api/game/start
+                 0. if IS_IN_LOCAL_MODE POST server:port/api/bot/ready
+            -->
+            <camel:choice>
+                <camel:when>
+                    <camel:simple>${properties:local.mode}</camel:simple>
+                    <!-- set start message-->
+
+                    <!-- [{"color":1,"userId":1},{"color":2,"userId":2}] -->
+                    <camel:setBody>
+                        <camel:spel>
+                            [{"color":#{T(com.epam.runner.Runner).USER_BOT_COLOR.toString()},"userId":1},{"color":#{T(com.epam.runner.Runner).USER_BOT_COLOR.toString().equals("1")?2:1},"userId":2}]
+                        </camel:spel>
+                    </camel:setBody>
+
+                    <camel:setHeader headerName="content-type">
+                        <camel:constant>application/json</camel:constant>
+                    </camel:setHeader>
+                    <camel:to uri="restlet:{{game.server}}/api/game/start?restletMethod=post"/>
+                    <camel:removeHeader headerName="org.restlet.http.headers"/>
+
+                    <!-- set first boot ready message-->
+                    <!-- {"color":1|2,"userId":1} -->
+                    <camel:setBody>
+                        <camel:spel>
+                            {"color":#{T(com.epam.runner.Runner).USER_BOT_COLOR.toString()},"userId":1}
+                        </camel:spel>
+                    </camel:setBody>
+                    <camel:to uri="direct:sendBotReady"/>
+
+                    <!--set second boot ready message-->
+                    <!-- {"color":1|2,"userId":2} -->
+                    <camel:setBody>
+                        <camel:spel>
+                            {"color":#{T(com.epam.runner.Runner).USER_BOT_COLOR.toString().equals("1")?2:1},"userId":2}
+                        </camel:spel>
+                    </camel:setBody>
+                    <camel:to uri="direct:sendBotReady"/>
+                </camel:when>
+                <camel:otherwise>
+
+                    <camel:setBody>
+                        <camel:simple>${null}</camel:simple>
+                    </camel:setBody>
+
+                    <camel:to uri="direct:sendBotReady"/>
+                </camel:otherwise>
+            </camel:choice>
+
+        </camel:route>
+
+        <camel:route id="runnerJava">
+            <camel:from uri="restlet:{{runner.server}}/move?restletMethod=post"/>
+            <camel:convertBodyTo type="java.lang.String"/>
+
+            <camel:log message=">> RUNNER-JAVA:\nInput Request: ${headers}\nbody:(${body})"/>
+
+            <camel:unmarshal ref="jack"/>
+            <camel:to uri="bean:runner?method=getMove"/>
+            <camel:marshal ref="jack"/>
+        </camel:route>
+
+        <!-- Default embedded Game Server -->
+        <camel:route id="gameServer" autoStartup="false">
+            <camel:from uri="restlet:{{game.server}}?restletMethod=post&amp;restletUriPatterns=#serverUris"/>
+            <camel:log message=">> GAME SERVER\nInput Request: ${headers}\n${body}"/>
+        </camel:route>
+
+        <camel:route>
+            <camel:from uri="direct:sendBotReady"/>
+            <camel:setHeader headerName="content-type">
+                <camel:constant>application/json</camel:constant>
+            </camel:setHeader>
+            <camel:log message=">>>${body}"/>
+            <camel:to uri="restlet:{{game.server}}/api/bot/ready?restletMethod=post"/>
+            <camel:removeHeader headerName="org.restlet.http.headers"/>
+        </camel:route>
+    </camel:camelContext>
+</beans>

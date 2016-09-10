@@ -1,0 +1,145 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/09/Square/SquareGame.jack
+
+/**
+ * Implements the XO game.
+ * q|w|e|
+ * a|s|d|
+ * z|x|c|
+ * - to put on the location where the letter is, press that letter
+ * - press 1, to say X won, 2 for tie, 3 for O won
+ */
+class XO {
+
+    // The Board
+    field Board board;
+
+    /** Constructs a new Square Game. */
+    constructor XO new() {
+        let board = Board.new();
+        return this;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+        do board.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    /** Starts the game. Handles inputs from the user that control
+     *  the square's movement, direction and size. */
+    method void run() {
+        var char key;
+        var boolean exit;
+        var boolean ended;
+		var boolean pressedQ;
+		var boolean pressedW;
+		var boolean pressedE;
+		var boolean pressedA;
+		var boolean pressedS;
+		var boolean pressedD;
+		var boolean pressedZ;
+		var boolean pressedX;
+		var boolean pressedC;
+
+        let exit = false;
+		let ended = false;
+
+        while (~exit) {
+			let pressedQ = false;
+			let pressedW = false;
+			let pressedE = false;
+			let pressedA = false;
+			let pressedS = false;
+			let pressedD = false;
+			let pressedZ = false;
+			let pressedX = false;
+			let pressedC = false;
+			let ended = false;
+			while (~ended) {
+				while (key = 0) {
+					let key = Keyboard.keyPressed();
+				}
+				if (key = 27) {
+					let exit = true;
+				}
+				if (key = 81) {
+					if (~pressedQ) {
+						let pressedQ = true;
+						do board.play(0,0);
+					}
+				}
+				if (key = 87) {
+					if (~pressedW) {
+						let pressedW = true;
+						do board.play(1,0);
+					}
+				}
+				if (key = 69) {
+					if (~pressedE) {
+						let pressedE = true;
+						do board.play(2,0);
+					}
+				}
+				if (key = 65) {
+					if (~pressedA) {
+						let pressedA = true;
+						do board.play(0,1);
+					}
+				}
+				if (key = 83) {
+					if (~pressedS) {
+						let pressedS = true;
+						do board.play(1,1);
+					}
+				}
+				if (key = 68) {
+					if (~pressedD) {
+						let pressedD = true;
+						do board.play(2,1);
+					}
+				}
+				if (key = 90) {
+					if (~pressedZ) {
+						let pressedZ = true;
+						do board.play(0,2);
+					}
+				}
+				if (key = 88) {
+					if (~pressedX) {
+						let pressedX = true;
+						do board.play(1,2);
+					}
+				}
+				if (key = 67) {
+					if (~pressedC) {
+						let pressedC = true;
+						do board.play(2,2);
+					}
+				}
+				if (key = 50) {
+					let ended = true;
+					do board.newMatch();
+					do Sys.wait(300);
+					
+				}
+				if (key = 49) {
+					let ended = true;
+					do board.win(true);
+					do Sys.wait(300);
+				}
+				if (key = 51) {
+					let ended = true;
+					do board.win(false);
+					do Sys.wait(300);
+				}
+				let key = 0;
+			}
+        }
+		do board.newMatch();
+        return;
+	}
+}

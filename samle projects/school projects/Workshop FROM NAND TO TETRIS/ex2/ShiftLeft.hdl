@@ -1,0 +1,13 @@
+/**
+ *	The chip will multiply by 2 its input.(The sign should not change)
+ */
+CHIP ShiftLeft {
+
+    IN
+	in[16];
+    OUT
+	out[16];
+    PARTS:
+	Add16(a=in, b=in, out=out);
+
+}

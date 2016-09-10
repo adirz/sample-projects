@@ -1,0 +1,183 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/String.jack
+
+/**
+ * Represents a String object. Implements the String type.
+ */
+class String {
+    static int numeric_start; // the start of the ascii value of numbers
+    static int numeric_end; // the last of the ascii value of numbers
+	static int numeric_base;
+	static int negative;
+	static int new_line;
+	static int back_space;
+	static int double_quote;
+
+
+	field Array data;
+	field int max_length;
+	field int string_length;
+
+	/** initialize used constants */
+	function void init() {
+		let numeric_start = 48;
+		let numeric_end = 57;
+		let numeric_base = 10;
+		let negative = 45;
+		let new_line = 128;
+		let back_space = 129;
+		let double_quote = 34;
+		return;
+	}
+
+    /** Constructs a new empty String with a maximum length of maxLength. */
+    constructor String new(int maxLength) {
+		if ( maxLength = 0 ) {
+	    	let maxLength = 1;
+		}
+		let data = Array.new(maxLength);
+		let max_length = maxLength;
+
+		return this;
+    }
+
+    /** De-allocates the string and frees its space. */
+    method void dispose() {
+		do data.dispose();
+		return;
+    }
+
+    /** Returns the current length of this String. */
+    method int length() {
+		return string_length;
+    }
+
+    /** Returns the character at location j. */
+    method char charAt(int j) {
+		return data[j];
+    }
+
+    /** Sets the j'th character of this string to be c. */
+    method void setCharAt(int j, char c) {
+		let data[j] = c;
+
+		return;
+    }
+
+    /** Appends the character c to the end of this String.
+     *  Returns this string as the return value. */
+    method String appendChar(char c) {
+		if ( string_length < max_length ) {
+		    let data[string_length] = c;//maybe swiching the lines
+		    let string_length = string_length + 1;
+		}
+
+		return this;
+    }
+
+    /** Erases the last character from this String. */
+    method void eraseLastChar() {
+		if ( 0 < string_length ) {
+			let string_length = string_length - 1;
+		}
+
+		return;
+    }
+
+    /** Returns x or the negative value of x 
+     *  by is_negative. */
+    function int trueValue(int x, boolean is_negative) {
+		if ( is_negative ) {
+		    return -x;
+		}
+		return x;
+    }
+
+    /** Returns the integer value of this String until the first non
+     *  numeric character. */
+    method int intValue() {
+		var int value;
+		var boolean is_negative;
+		var int counter;
+		
+		if ( string_length = 0 ) {
+			return 0;
+		}
+	
+		let counter = 0;
+		let is_negative = false;
+	
+		if ( data[0] = negative ) {
+		    let is_negative = true;
+		    let counter = 1;
+		}
+
+		let value = 0;
+		while ( counter < string_length ) {
+		    if ( (data[counter] < numeric_start) | (numeric_end < data[counter]) ) {
+				return String.trueValue(value, is_negative);
+		    }
+		    let value = Math.multiply(value, numeric_base) + (data[counter] - numeric_start);
+		}
+
+		return String.trueValue(value,is_negative );
+    }
+
+    /** Sets this String to hold a representation of the given number. */
+    method void setInt(int number) {
+		var int digit;
+		var int reminder;
+		var int length;
+		var int counter;
+		var Array bases;
+		var Array division;
+
+		let string_length = 0;
+		if ( number < 0) {
+		    do appendChar(negative);
+		    let number = -number;
+		}
+
+		// gets the length of number, because it is faster backwards
+		let length = Math.lengthInBase(number, numeric_base);
+		let bases = Array.new(length);
+		let bases[0] = numeric_base;
+		let counter = 1;
+		while ( counter < length ) {
+		    let bases[counter] = Math.multiply(bases[counter], numeric_base);
+		    let counter = counter + 1;
+		}
+	
+		// as long as there is more than one digit left
+		let counter = length - 1;
+		let reminder = number;
+		while ( ~(counter < 0) ) {
+		    let division = Math.divideWithReminder(reminder, bases[counter]);
+		    let digit = division[0];
+		    let reminder = division[1];
+		    do division.dispose();
+		    do appendChar(digit);
+		}
+
+		do bases.dispose();
+
+		return;
+    }
+
+    /** Returns the new line character. */
+    function char newLine() {
+		return new_line;
+    }
+
+    /** Returns the backspace character. */
+    function char backSpace() {
+		return back_space;
+    }
+
+    /** Returns the double quote (") character. */
+    function char doubleQuote() {
+		return double_quote;
+    }
+}

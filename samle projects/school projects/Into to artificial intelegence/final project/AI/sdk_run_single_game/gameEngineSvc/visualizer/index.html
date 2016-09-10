@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Local battle</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/visualizer.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="lib/jquery-1.11.1.min.js "></script>
+</head>
+<body>
+<div class="container">
+    <div id="legend">
+        <a>Your bot</a>
+        <img src="pieces/PHARAOH_SILVER_FRONT.png"/>
+        <h2 style="display: inline-block;">VS.</h2>
+        <img src="pieces/PHARAOH_RED_FRONT.png"/>
+        <a>Default bot</a>
+    </div>
+    <div id="gameWrapper">
+        <div class="boardWrapper">
+            <table id="board" class="board">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <svg class="visualizer">
+            <path id="laser" fill="transparent" stroke="red" stroke-width="3" d="M 0 0"/>
+            <text id="msg" x="50%" y="45%" fill="white" stroke="black" font-weight="bold" font-size="60"
+                  text-anchor="middle"></text>
+        </svg>
+        <div class="progressBox">
+            <span id="start">Start</span><span id="end" style="float: right"></span>
+            <input id="progress" type="range" min="0" value="0" step="1" disabled>
+            <hr/>
+            <button id="resume" style="float: right" disabled>resume</button>
+            <button id="pause" style="float: right" disabled>pause</button>
+            <label for="x1">
+                <input id="x1" type="radio" name="speed" checked value="3000"/>x1
+            </label>
+            <label for="x2">
+                <input id="x2" type="radio" name="speed" value="1500"/>x2
+            </label>
+            <label for="x10">
+                <input id="x10" type="radio" name="speed" value="100"/>x10
+            </label>
+            <hr/>
+        </div>
+        <ol id="logs" style="overflow-y: scroll">GAME LOG:</ol>
+    </div>
+</div>
+    <script src="visualizer.js"></script>
+</body>
+</html>

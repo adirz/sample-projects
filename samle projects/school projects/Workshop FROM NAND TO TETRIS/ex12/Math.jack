@@ -1,0 +1,193 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Math.jack
+
+/**
+ * A basic math library.
+ */
+class Math {
+	static Array two_to_the_power_of;
+	static int bit_size;
+	static int half_bit_size;
+
+    /** Initializes the library. */
+	function void init() {
+		var int location;
+
+		let bit_size = 16;
+		let half_bit_size = 8;
+		let two_to_the_power_of = Array.new(bit_size);
+		let two_to_the_power_of[0] = 1;
+		let location = 1;
+	
+		while ( location < bit_size) {
+		    let two_to_the_power_of[location] = two_to_the_power_of[location - 1] + two_to_the_power_of[location - 1];
+		    let location = location + 1;
+		}
+
+		return;
+    }
+
+	/** return 2 to the power of n */
+	function int getPower(int n) {
+		return two_to_the_power_of[n];
+	}
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+		if ( x < 0 ) {
+		    return - x;
+		}
+		return x;
+    }
+
+    /** Returns the product of x and y. */
+    function int multiply(int x, int y) {
+		var int sum;
+		var int shiftedX;
+		var int counter;
+
+		if ( x < 0 ) {
+		    return -Math.multiply(-x, y);
+		}
+		if ( y < 0 ) {
+		    return -Math.multiply(x, -y);
+		}
+
+		let sum = 0;
+		let shiftedX = x;
+		let counter = 0;
+
+		while ( counter < bit_size ) {
+			if ( (y & two_to_the_power_of[counter]) = two_to_the_power_of[counter] ) {
+				let sum = sum + shiftedX;
+			}
+			let shiftedX = shiftedX + shiftedX;
+			let counter = counter + 1;
+		}
+		
+		return sum;
+    }
+
+    /** Returns an array. at 0 is the integer part of x/y, at 1 is the reminder. */
+    function Array divideWithReminder(int x, int y) {
+		var Array value;
+		var int counter;
+		var int temp;
+
+		if ( x < 0 ) {
+			let value = Math.divideWithReminder(-x, y);
+			let value[0] = -value[0];
+			let value[1] = -value[1];
+		    return value;
+		}
+		if ( y < 0 ) {
+			let value = Math.divideWithReminder(x, -y);
+			let value[0] = -value[0];
+			let value[1] = -value[1];
+		    return value;
+		}
+	
+		let value = Array.new(2);
+		let value[0] = 0;
+		let value[1] = x;
+
+		// figuring out the maximum of the possible result
+		// while (y >= 2^counter)
+		let counter = 0;
+		while ( ~(two_to_the_power_of[counter] > y) ) {
+		    let counter = counter + 1;
+			if ( counter = bit_size) {
+				return value;
+			}
+		}
+		let counter = bit_size - counter - 1;
+		while ( ~(value[1] < y) ) {
+		    let temp = Math.multiply(two_to_the_power_of[counter], y);
+		    if ( ~(value[1] < temp) ) {
+				let value[0] = value[0] + two_to_the_power_of[counter];
+				let value[1] = value[1] - temp;
+	    	}
+	    	let counter = counter - 1;
+		}
+		
+		return value;
+    }
+
+    /** Returns the integer part of x/y. */
+    function int divide(int x, int y) {
+		var Array division;
+		var int value;
+	
+		let division = Math.divideWithReminder(x, y);
+		let value = division[0];
+		do division.dispose();
+
+		return value;
+    }
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+		var int counter;
+		var int value;
+		var int tempA;
+		var int tempB;
+
+		let value = 0;
+		let counter = half_bit_size - 1;
+		while ( ~(counter < 0) ) {
+			let tempA = value + two_to_the_power_of[counter];
+			let tempB = Math.multiply(tempA, tempA);
+		    if ( (~(x < tempB)) & (tempB > 0) ) {
+				let value = tempA;
+		    }
+			let counter = counter - 1;
+		}
+
+		return value;
+    }
+
+    /** Returns the greater number. */
+    function int max(int a, int b) {
+		if ( a < b ) {
+	 	   return b;
+		}
+		return a;
+    }
+
+    /** Returns the smaller number. */
+    function int min(int a, int b) {
+		if ( a < b ) {
+		    return a;
+		}
+		return b;
+    }
+
+    /** Returns the number of digits of positive number a in base b. */
+    function int lengthInBase(int a, int b) {
+		var int counter;
+		var int number;
+	
+		let counter = 1;
+		let number = b;
+
+		while ( ~(a < number) ) {
+		    let number = Math.multiply(b, number);
+		    let counter = counter + 1;
+		}
+
+		return counter;
+    }
+	
+    /** Returns 1 if positive, -1 if negative, 0 if 0 */
+    function int getSign(int number) {
+		if ( number > 0 ) {
+		    return 1;
+		}
+		if ( number < 0 ) {
+		    return -1;
+		}
+		return 0;
+    }
+}

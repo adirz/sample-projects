@@ -1,0 +1,28 @@
+how to run everything:
+
+1) put the entire AI folder in "/tmp".
+2) chmod to allow read and write to anything in the folder: chmod -R +777 /tmp/AI
+3) go to /tmp/AI/Optimization
+4) 
+
+A)
+change args.txt to the wanted command
+if you want to create a best grading system:
+<kidsInGeneration>
+<generationNum>
+<optimizationType>
+<printing>
+<botType>
+where kidsInGeneration and generationNum are ints, optimizationType is "genetic"/"stoHillClimb",
+printing is "true"/"false", botType is "UserBot"/"HeuristicBot"
+be prepared- it takes a lot of time- about two-three minutes per game, number of games is kidsInGeneration*(kidsInGeneration - 1)*2*generationNum
+
+B)
+if you want to test a lot of best agents against each other after you run the optimization:
+each time you run A) it will end by saving the best grading of that configuration to "/tmp/AI/results/best.json"
+remove the last line indicating how many generation has past (as it saves the best on each generation on the same spot,
+so it is an indicator to where we are) and save it in the fitting folder ("highPopAnnHeubot"/"highPopAnnUserbot"/...) as "0.json"/"1.json"
+change args.txt to "Test"
+
+5) go to "/tmp/AI/Optimization" and run in the shell "./gradlew clean run" and it will run A) or B) by what you did in 4)
+6) if you want to see the matches being played, go on your browser into "localhost:8080"

@@ -1,0 +1,3 @@
+DROP TABLE Guests;
+DROP TABLE Rooms;
+DROP TABLE Stayed;

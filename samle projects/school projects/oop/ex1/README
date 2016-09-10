@@ -1,0 +1,32 @@
+adirz
+
+
+File description:
+
+Mastermind.java -
+Implements the bulls and cows game, save statisrics generate code and runing
+the game. Using the MastermindUI, Code and an inner class called Statistics.
+README - 
+This file
+
+
+Design:
+
+I used a class I created called Statistics, to help me keep track of the stats.
+The main program Is in a loop that goes on until the variable gameContinue 
+changes to false. In the loop, if the user wishes to, or it is needed, he can 
+set the settings. after the user guesses I check the bulls and cows (not the
+most efficient way, but data structures were not allowed). The way they are
+checked is by first matching each place in the guess with it equivlant to
+check for bulls, than counting the cows in a similar matter, and than
+subtructing those we counted twice.
+
+Implementation Issues:
+
+None
+
+Answers to Questions:
+
+None
+
+

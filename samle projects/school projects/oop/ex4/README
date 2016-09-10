@@ -1,0 +1,140 @@
+adirz
+
+---------
+==============================================================================
+File description:
+==============================================================================
+
+SimpleHashSet
+	A class that Implements SimpleSet. I used 3 field members:
+		cap - the hash table number of cells.
+		LowerLoadFactor- the lower load factor. Determine if we have to halves
+		the hash table size.
+		UpperLoadFactor- the Upper load factor. Determine if we have to double
+		the hash table size.
+		OpenHashSet and ChainedHashSet inherit from that class.
+	
+ChainedHashSet
+	A class that inherits from SimpleHashSet and implement the SimpleSet method.
+	In this class I also created class to wrap the LinkList. I used this class
+	in order to use a LinkList Array. In that class I used 2 fields:
+		table - the hash table of the class(implement as explained above).
+		size- counting the current number of strings inside the table.
+		
+OpenHashSet
+	A class that inherits from SimpleHahset and implement SimpleSet method.
+	To implement this class I used 2 fields:
+		table - array of Strings holds all the Strings added to the Array,
+				basically it is the hash table
+		deleted - boolean array that have True if the Strings in the table has
+				been removed at this point.
+	
+CollectionFacadeSet
+	This class inherit from SimpleHashset and implement all SimpleSet Methods.
+	It is used to hold different types in one array in the
+	SimpleSetPerformanceAnalayzer.
+
+SimpleSetPerformanceAnalayzer
+	A class that creates a SimpleSet array that contain 3 collection data
+	structure and my implementations of Open and Chained hashing. I used this
+	class to compare the efficiency of the different data structures.
+
+README - This file
+
+
+==============================================================================
+Design:
+==============================================================================
+
+I followed the instruction and implemented the class as the API instructed.
+SimpleHashSET implement SimpleSet.
+OpenHashset inherit from SimpleHashSet.
+ChainedHashSet inherit from SimpleHashSet.
+CollectionFacadeSet inherit implement SimpleSet.
+
+
+
+==============================================================================
+Implementation Issues:
+==============================================================================
+
+Hierarchy issues:
+None
+
+
+==============================================================================
+Questions
+==============================================================================
+
+2)	I created a class that wraps LinkedList, and made an array of that.
+	Each place in the array is a cell in the table, holds infinite number of
+	places via a linked list.
+3)I deleted by going to each place possible by the hashing formula, if it was
+   empty and not deleted so I don't need to continue further because it hasn't
+	reached there. If I found the String I deleted it, and if I exceeded the
+	number of element than I don;t need to go further.
+	
+5)
+		- 	When we enlarge the hash table size every time we need to rehash
+			all of the previous elements.
+		
+		- 	OpenHashSet 	advantage: hash data2 in very short time.
+							disadvantage: data1 was very inefficient
+			Chainedhahset 	advantage: was very efficient for data2
+							disadvantage: wasn't efficient for the data1.
+			TreeSet 		advantage: was very efficient for both data.
+							disadvantage: slower than HashSet.
+			LinkedList		advantage: fast to find a string.
+							disadvantage: was very inefficient for both data. 
+			HashSet 		advantage: the best collection In the bunch.
+			
+		- 	In data1 ChainedHashSet was faster because it had only one place
+			to hash to, while OpenHashSet had to enlarge the parameter and try
+			many hashes.
+			In data2 OpenHashSet was faster because it didn't need to create
+			lists and had fewer collisions.
+			
+		-	The HashSet was obviously needed to be fast because it was created
+			for that purpose, but a speed difference of that much is baffling
+			because it means it easily hashes- meaning the table is big, which
+			is not recommended.
+			OpenHashSet was surpassingly slow to search because finding a hash
+			code should be instantaneous and it need to skip a lot in order to
+			reach even a small time, let along 6.
+		
+		-	look in previous.
+		
+		-	It's obvious but still very cool
+		
+
+==============================================================================
+SimpleSetPerformanceAnalayzer:
+==============================================================================
+
+$time$ - fastest one
+(f) - found
+(n) - not found
+
+Type                   |              |           |       |          |       |
+-----------------------|ChainedHashSet|OpenHashSet|TreeSet|LinkedList|HashSet|
+action_________________|______________|___________|_______|__________|_______|
+Building data1         |  36110       |  454386   |  $66$ |  36930   | $66$  |
+-----------------------------------------------------------------------------|
+Building data2         |  307         |    57     |   42  |  21551   |  $7$  |
+-----------------------------------------------------------------------------|
+faster                 |    data2     |   data2   | data2 |  data2   | data2 |
+-----------------------|--------------|-----------|-------|----------|-------|
+finding "hi" on data1  |  0 (n)       |  1 (n)    | 1 (n) |  1 (n)   | 0 (n) |
+-----------------------|--------------|-----------|-------|----------|-------|
+finding "-13170890158" | 0 (n)        | 6 (n)     | 0 (n) |  0 (n)   | 0 (n) |
+on data1_______________|______________|___________|_______|__________|_______|
+faster                 | same         |   "hi"    |number | number   |number |
+-----------------------|--------------|-----------|-------|----------|-------|
+finding "hi" on data2  | 0 (n)        |  0 (n)    | 0 (n) |  0 (n)   | 0 (n) |
+-----------------------|--------------|-----------|-------|----------|-------|
+finding "23" on data2  | 0 (f)        |  0 (f)    | 0 (f) |  0 (f)   | 0 (f) |
+-----------------------|--------------|-----------|-------|----------|-------|
+faster                 | same         |   same    |  same |   same   |  same |
+-----------------------|--------------|-----------|-------|----------|-------|
+
+

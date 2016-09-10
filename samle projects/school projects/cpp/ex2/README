@@ -1,0 +1,5 @@
+I did the bonuses of finding the tie situations (a player can't move) and you can escape loosing in
+any legal mean possible.
+Both bonuses ware done by going on all the player's pieces and checking either they can move to any
+location in the board without exposing the king. Where if you are under threat for the king and
+can't move without him being exposed you lost for sure.

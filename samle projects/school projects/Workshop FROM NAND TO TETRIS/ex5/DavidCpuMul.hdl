@@ -1,0 +1,78 @@
+/**
+* This chip is an extension of the book CPU by using the extended ALU.
+* More specificly if instruction[15]==0 or (instruction[14] and instruction[13] equals 1)
+* the CpuMul behave exactly as the book CPU.
+* While if it is C instruction and instruction[13] == 0 the output will be D*A/M 
+* (according to instruction[12]).
+* Moreover, if it is c instruction and instruction[14] == 0 it will behave as follows:
+*
+* instruction:  | 12 | 11 | 10 |
+* _____________________________
+* shift left D  | 0  | 1  | 1  |
+* shift left A  | 0  | 1  | 0  |
+* shift left M  | 1  | 1  | 0  |
+* shift right D | 0  | 0  | 1  |
+* shift right A | 0  | 0  | 0  |
+* shift right M | 1  | 0  | 0  |
+**/
+
+CHIP CpuMul{
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset=1) or continue executing
+                         // the current program (reset=0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write into M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+     PARTS:
+
+	// choose A or M to run ALU with
+	Mux16(a = outA, b = inM, sel = instruction[12], out = aluY); 
+	ExtendAlu(x = outD, y = aluY,
+	    instruction[0..8] = instruction[6..14],  // negate the out output?
+	    out = aluResult, // 16-bit output
+	    zr  = JEQTrue,   // 1 if (out == 0), 0 otherwise
+	    ng  = JLTTrue    // 1 if (out < 0),  0 otherwise
+	);
+
+	// Write to M in case needed
+	Mux16(a = false, b = aluResult, sel = instruction[3], out = outM);
+	And(a = instruction[15], b = instruction[3], out = writeM);
+	And16(a = true, b = outA, out[0..14] = addressM);
+
+	// Write to A in case needed
+	Not(in = instruction[5], out = NotALUToA);
+	Nand(a = instruction[15], b = NotALUToA, out = LoadSelA);
+	Mux16(a = instruction, b = aluResult, sel = instruction[15], out = inA);
+	ARegister(in = inA, load = LoadSelA, out = outA);
+
+	// Write to D in case needed
+	And(a = instruction[4], b = instruction[15], out = loadD);
+	DRegister(in = aluResult, load = loadD, out = outD);
+
+	// Figure out where to jump (if at all)
+	Or(a = JEQTrue, b = JLTTrue, out = IsLE);
+	Not(in = IsLE, out = nLE);
+	And(a = instruction[0], b = nLE, out = JGT);
+
+	And(a = instruction[1], b = JEQTrue, out = JEQ);
+
+	And(a = instruction[2], b = JLTTrue, out = JLT);
+
+	Or(a = JGT, b = JEQ, out = JGE);
+	Or(a = JGE, b = JLT, out = JMP);
+
+	And(a = instruction[15], b = JMP, out = loadPc);
+
+	PC(in = outA, load = loadPc, inc = true, reset = reset, out[0..14] = pc);
+
+//	Not(a = instruction[15], out = CInst);
+	//And(a = instruction[13], b = instruction[14], out = ShiftOrMul);
+	//Or(a = CInst, b = ShiftOrMul, out = NormalCPU);
+
+}

@@ -1,0 +1,77 @@
+/**
+* This chip is an extension of the book CPU by using the extended ALU.
+* More specificly if instruction[15]==0 or (instruction[14] and instruction[13] equals 1)
+* the CpuMul behave exactly as the book CPU.
+* While if it is C instruction and instruction[13] == 0 the output will be D*A/M 
+* (according to instruction[12]).
+* Moreover, if it is c instruction and instruction[14] == 0 it will behave as follows:
+*
+* instruction:  | 12 | 11 | 10 |
+* _____________________________
+* shift left D  | 0  | 1  | 1  |
+* shift left A  | 0  | 1  | 0  |
+* shift left M  | 1  | 1  | 0  |
+* shift right D | 0  | 0  | 1  |
+* shift right A | 0  | 0  | 0  |
+* shift right M | 1  | 0  | 0  |
+**/
+
+CHIP CpuMul{
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset=1) or continue executing
+                         // the current program (reset=0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write into M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+     PARTS:
+	// A-instruction vs. C-instruction
+	Not(in = instruction[15], out = isAInstr);
+	And(a = instruction[15], b = instruction[15], out = isCInstr);
+
+	//C-instruction
+	//a (A vs M)
+	And(a = isCInstr, b = instruction[12], out = selM);// selM = CInst[12]
+
+	And(a = isCInstr, b = instruction[5], out = AIsDest);
+	Or(a = isAInstr, b = AIsDest, out = loadA);// loadA = CInstOrA[5]
+	And(a = isCInstr, b = instruction[4], out = loadD);// loadD = CInstOrA[4]
+
+	// setting the CPU input to change the CPU iff (instruction[15]==0 or 
+	// instruction[14] and instruction[13] equals 1)
+	Not(in = instruction[15], out = AInst);
+	And(a = instruction[13], b = instruction[14], out = useCPU);
+	Or(a = AInst, b = useCPU, out = mustCPU);
+
+
+	//Set A register
+	Mux16(a = ALUout, b = instruction, sel = isAInstr, out = Ain);
+	ARegister(in = Ain, load = loadA, out = Aout);
+
+	//Get M Or A
+	Mux16(a = Aout, b = inM, sel = selM, out = AMout);
+
+	Mux16(a = Dout, b = AMout, sel = false, out = x);
+	Mux16(a = AMout, b = Dout, sel = false, out = y);
+
+	//ExtendAlu
+	ExtendAlu(x = x, y = y, instruction = instruction[6..14], out = ALUout, out = outM, zr = zr, ng = ng);
+
+	//D register
+	DRegister(in = ALUout, load = loadD, out = Dout);
+
+	Or(a = zr, b = ng, out = zrOrNg);
+	Not(in = zrOrNg, out = pos);
+	And16(a[0..2] = instruction[0..2], b[0] = pos, b[1] = zr, b[2] = ng, out[0..7] = jumpables);
+	Or8Way(in = jumpables, out = jumpable);
+	And(a = instruction[15], b = jumpable , out = jump);
+
+	And(a = isCInstr, b = instruction[3], out = writeM);
+	And16(a = Aout, b = Aout, out[0..14] = addressM);
+	PC(in = Aout, inc = true, load = jump, reset = reset, out[0..14] = pc);
+}

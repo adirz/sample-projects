@@ -1,0 +1,353 @@
+test001.sjava 0 int member test no value
+test002.sjava 0 int member test with positive value
+test003.sjava 0 int member test with negative value
+test004.sjava 0 int member test with zero value
+test005.sjava 1 int member test with illegal value: double
+test006.sjava 1 int member test with illegal value: string1
+test007.sjava 1 int member test with illegal value: string2
+test008.sjava 1 final int member test no value
+test009.sjava 1 final int member test with positive value
+
+test011.sjava 0 boolean member test no value
+test012.sjava 0 boolean member test with true value
+test013.sjava 0 boolean member test with false value
+test014.sjava 1 boolean member test with int value              
+test015.sjava 1 boolean member test with double value		
+test016.sjava 1 boolean member test with illegal value: string1
+test017.sjava 1 boolean member test with illegal value: string2
+
+test021.sjava 0 String member test no value
+test022.sjava 0 String member test with value
+test023.sjava 1 String member test with illegal value: int	
+test024.sjava 1 String member test with illegal value: double
+test025.sjava 1 String member test with illegal value: string with no parentheses
+test026.sjava 0 String member test with empty string
+
+test031.sjava 0 double member test no value
+test032.sjava 0 double member test with positive value
+test033.sjava 0 double member test with negative value
+test034.sjava 0 double member test with zero value
+test035.sjava 0 double member test with int value
+test036.sjava 1 double member test with illegal value: string1
+test037.sjava 1 double member test with illegal value: string2
+
+test041.sjava 0 char member test no value
+test042.sjava 0 char member test with value
+test043.sjava 0 char member test with special value
+test044.sjava 1 char member test with illegal value: int
+test045.sjava 1 char member test with illegal value: double
+test046.sjava 1 char member test with illegal value: char with no parentheses
+test047.sjava 1 char member test with illegal value: mutli chars
+test048.sjava 1 char member test with illegal value: String
+
+test051.sjava 0 int member equals another member int
+test052.sjava 1 int member equals future variable
+test053.sjava 1 int member equals commented variable
+test054.sjava 1 int member equals uninitialized variable
+test055.sjava 1 declare nultiple variables in one line
+test056.sjava 1 void member
+test055.sjava 1 initialuzed void member
+test058.sjava 1 declare member without any type
+
+test060.sjava 0 array int empty	
+test061.sjava 0 array double empty
+test062.sjava 0 array strings empty
+test063.sjava 0 array chars empty
+test064.sjava 0 array boolean empty
+test065.sjava 1 bad array initialization
+test066.sjava 1 init array to a non-array type
+test067.sjava 0 array int with one int value
+test068.sjava 1 array int with one double value
+test069.sjava 0 array double with one double value
+test070.sjava 0 array double with one int value
+
+test071.sjava 0 array int not-empty
+test071.sjava 0 array double not-empty
+test073.sjava 0 array strings not-empty
+test074.sjava 0 array chars not-empty
+test075.sjava 0 array boolean not-empty			
+test076.sjava 1 decalre array 
+test077.sjava 0 decalre uninitialuzed array 
+test078.sjava 0 decalre uninitialuzed array 
+
+test080.sjava 0 assign to int array
+test081.sjava 0 assign to double array
+test082.sjava 0 assign to String array
+test083.sjava 1 assign to negative array location
+test084.sjava 0 assign to boolean (false)array
+test085.sjava 0 assign to char array
+test086.sjava 0 assign int to double array
+test087.sjava 1 assign double to int array
+test088.sjava 1 assign String to int array
+test089.sjava 1 assign with bad index
+test090.sjava 0 assign to 0 index
+
+test091.sjava 1 init array with comma at the end
+test092.sjava 1 init array with comma at the beginning
+test093.sjava 0 init int array with negative numbers
+test094.sjava 0 assign array with negative numbers
+
+test101.sjava 0 empty int method no parameters
+test102.sjava 0 empty double method no parameters
+test103.sjava 0 empty String method no parameters
+test104.sjava 0 empty char method no parameters
+test105.sjava 0 empty boolean method no parameters
+test106.sjava 0 empty void method no parameters
+test107.sjava 0 empty int method int parameter
+test108.sjava 0 empty int method double parameter
+test109.sjava 0 empty int method String parameter
+test110.sjava 0 empty int method char parameter
+test111.sjava 0 empty int method boolean parameter
+test112.sjava 0 empty int method 2 parameters
+test113.sjava 0 empty int method 5 parameters
+test114.sjava 1 empty int method 2 parameters with the same name
+test115.sjava 1 mistyped void
+test116.sjava 1 method without a return value
+
+test120.sjava 0 method with a int array return value from input
+test121.sjava 0 method with a double array return value from input
+test122.sjava 0 method with a String array return value from input
+test123.sjava 0 method with a char array return value from input
+test124.sjava 0 method with a boolean array return value from input
+test125.sjava 0 method with a return empty int array 
+test126.sjava 0 method with a return not-empty int array 
+test127.sjava 0 method with a return empty String array
+test128.sjava 0 method with a return not-empty String array 
+test129.sjava 1 method with a return String array to int array 
+test130.sjava 0 method with a return int array to double array
+test131.sjava 1 method with a return double array to int array
+
+test132.sjava 0 method with a return new array
+test133.sjava 0 method with a return new array
+test134.sjava 0 method with a return new array
+
+test136.sjava 1 method with a return new double array to int array
+
+test137.sjava 0 method with a return array element
+test138.sjava 1 method with a return array element
+
+test140.sjava 0 using operator + 
+test141.sjava 0 using operator unary - 
+test142.sjava 0 using operator - 
+test143.sjava 0 using operator / 
+test144.sjava 0 return from method with operator +
+test145.sjava 1 return from method with operator int + String
+test146.sjava 0 return from method with operator method parameter + int
+test147.sjava 0 return from method with operator method parameter + int
+test148.sjava 1 return from method with operator call method + int
+test149.sjava 0 using operator * 
+test150.sjava 1 return from method with operator + and spaces
+test151.sjava 0 return from method with operator + inside array
+test152.sjava 1 using operator \
+test153.sjava 0 using operator + inside array decleration
+test154.sjava 1 using operator + without any numbers
+test155.sjava 0 assigning to complex array elemnt 
+test156.sjava 1 using () in operstor expression
+test157.sjava 0 return from method with operator call method + int
+test158.sjava 0 return from method with operator call int + double
+test159.sjava 0 assiging a complex operator result to a variable
+test160.sjava 0 assigning to complex array elemnt
+test161.sjava 0 assigning to complex array elemnt 
+
+test162.sjava 0 assigning an operator result to array element
+test163.sjava 0 assigning an operator result of doubles to array element
+test164.sjava 0 initialize array with operators
+test165.sjava 1 assigning to a negative array element 
+test166.sjava 0 assigning an operator result to array element
+
+test201.sjava 0 int local variable test no value
+test202.sjava 0 int local variable test with positive value
+test203.sjava 0 int local variable test with negative value
+test204.sjava 0 int local variable test with zero value
+test205.sjava 1 int local variable test with illegal value: double
+test206.sjava 1 int local variable test with illegal value: string1
+test207.sjava 1 int local variable test with illegal value: string2
+test208.sjava 1 int local variable test with return value for void method
+
+test211.sjava 0 boolean local variable test no value
+test212.sjava 0 boolean local variable test with true value
+test213.sjava 0 boolean local variable test with false value
+test214.sjava 1 boolean local variable test with int value		
+test215.sjava 1 boolean local variable test with double value		
+test216.sjava 1 boolean local variable test with illegal value: string1
+test217.sjava 1 boolean local variable test with illegal value: string2
+test218.sjava 1 boolean local variable test with return value for void method
+
+test221.sjava 0 String local variable test no value
+test222.sjava 0 String local variable test with value
+test223.sjava 1 String local variable test with illegal value: int
+test224.sjava 1 String local variable test with illegal value: double
+test225.sjava 1 String local variable test with illegal value: string with no parentheses
+test226.sjava 1 String local variable test with return value for void method
+
+test231.sjava 0 double local variable test no value
+test232.sjava 0 double local variable test with positive value
+test233.sjava 0 double local variable test with negative value
+test234.sjava 0 double local variable test with zero value
+test235.sjava 0 double local variable test with int value
+test236.sjava 1 double local variable test with illegal value: string1
+test237.sjava 1 double local variable test with illegal value: string2
+test238.sjava 1 double local variable test with return value for void method
+
+test241.sjava 0 char local variable test no value
+test242.sjava 0 char local variable test with value
+test243.sjava 0 char local variable test with special value
+test244.sjava 1 char local variable test with illegal value: int
+test245.sjava 1 char local variable test with illegal value: double
+test246.sjava 1 char local variable test with illegal value: char with no parentheses
+test247.sjava 1 char local variable test with illegal value: mutli chars
+test248.sjava 1 char local variable test with illegal value: String
+
+test251.sjava 0 int local variable test member with value
+test252.sjava 1 int local variable test member with value
+test253.sjava 0 int local variable test method parameter value
+test254.sjava 1 int local variable test other method call mathod
+test255.sjava 0 int local variable test recursive method call value
+
+test256.sjava 0 assign member to returned method value
+test257.sjava 0 assign member to returned method value
+test258.sjava 1 assign member to returned method value
+test259.sjava 0 assign member to returned method value
+test260.sjava 0 assign member to returned method value
+
+
+test261.sjava 1 return int local variable test	
+test262.sjava 1 return int member test with value
+test263.sjava 0 return int member test with value
+test264.sjava 0 return int method parameter test
+test265.sjava 0 return double method parameter test
+test266.sjava 0 member assigned with a value
+test267.sjava 0 method parameter variable assigned with a value
+test268.sjava 0 return a new array with initialized variable element
+test269.sjava 1 return non-void in void method
+test270.sjava 1 return wrong type
+
+test271.sjava 0 single line comment test
+test272.sjava 1 multi line comment in one line test
+test273.sjava 1 javadoc comment in one line test
+test274.sjava 1 multi line comment in many lines test
+test275.sjava 1 javadoc comment in many lines test
+test276.sjava 1 single line comment with error in beginning of line
+test277.sjava 1 single line comment with member in beginning of line
+test278.sjava 1 trying to access member in single line comment
+test279.sjava 1 trying to access member in multi line comment
+test280.sjava 0 define variable with the same name as in a comment
+test281.sjava 1 multi line comment instead of a while space
+test282.sjava 1 multi line comment separating two words in one line test
+test283.sjava 1 calling to a function in a comment
+test284.sjava 1 single line comment not at the beginning
+
+test291.sjava 0 return in the middle of a method
+
+test301.sjava 0 simple if with a boolean variable as condition
+test302.sjava 0 simple if with the true keyword as condition and another method decleration
+test303.sjava 0 simple if with the false keyword as condition
+test305.sjava 1 simple if with an int as condition			
+test306.sjava 1 simple if with a String as condition
+test307.sjava 1 simple if with a non-boolean variable as condition
+test308.sjava 1 simple if with a call to a method that doesn't return a boolean variable as condition
+test309.sjava 1 simple if with no condition
+test310.sjava 1 simple if with uninitialized boolean variable as condition
+
+test311.sjava 0 simple while with a boolean variable as condition
+test312.sjava 0 simple while with the true keyword as condition
+test313.sjava 0 simple while with the false keyword as condition
+test314.sjava 1 simple while with too many brackets
+test315.sjava 1 simple while with a number as condition			
+test316.sjava 1 simple while with a String as condition
+test317.sjava 1 simple while with a non-boolean variable as condition
+test318.sjava 1 simple while with a call to a method that doesn't return a boolean variable as condition
+test319.sjava 1 simple while with no condition
+test320.sjava 1 simple while with uninitialized boolean variable as condition
+
+test321.sjava 1 if with complex conditions			
+
+test323.sjava 0 if with array element condition
+test324.sjava 1 if with array element condition
+
+test401.sjava 1 illegal member name
+test402.sjava 1 illegal local variable name
+test403.sjava 1 illegal method name
+test404.sjava 0 local variable with name of existing member (same type)
+test405.sjava 0 local variable with name of existing member (different type)
+test406.sjava 1 local variable with name of existing parameter name (same type)
+test407.sjava 1 local variable with name of existing parameter name (different type)
+test408.sjava 1 local variable with name of existing local variable (same type)
+test409.sjava 1 local variable with name of existing local variable (different type)
+test410.sjava 0 two local variables with the same name in the same method, but in different blocks
+
+test411.sjava 0 member line white spaces test 1
+test412.sjava 0 member line white spaces test 2
+test414.sjava 1 member line white spaces test 8
+test415.sjava 1 member line white spaces test 5
+test416.sjava 1 member line white spaces test 6
+test417.sjava 0 member line white spaces test 7
+test418.sjava 0 member line white spaces test 8
+test419.sjava 0 member line white spaces test 9
+test420.sjava 0 member line white spaces test 10
+
+test421.sjava 1 method definition white spaces test 1
+test422.sjava 1 method definition white spaces test 3
+test423.sjava 1 method definition white spaces test 4
+test424.sjava 1 method definition white spaces test 5
+
+test427.sjava 0 local variable line white spaces test 1
+test428.sjava 0 local variable line white spaces test 3
+test429.sjava 0 local variable line white spaces test 4
+test430.sjava 1 local variable line white spaces test 5
+test431.sjava 1 local variable line white spaces test 6
+
+test432.sjava 0 if call line white spaces test 1
+test433.sjava 0 if call line white spaces test 2
+test434.sjava 1 if call line white spaces test 3
+test435.sjava 1 if call line white spaces test 4
+
+test437.sjava 0 while call line white spaces test 1
+test438.sjava 0 while call line white spaces test 2
+test439.sjava 0 while call line white spaces test 3
+test440.sjava 0 while call line white spaces test 4
+test441.sjava 1 while call line white spaces test 5
+
+test451.sjava 0 nested calls test 1
+test452.sjava 1 extra parentheses error
+test453.sjava 1 missing parentheses error
+test454.sjava 1 call to function with no match number of parameters
+test455.sjava 1 return the member
+test456.sjava 1 call to function with no match number of parameters
+test457.sjava 0 return the input parameter
+test458.sjava 1 if inside while
+test459.sjava 1 call to function with no match number of parameters
+
+test460.sjava 1 define a return value from a void function
+
+test461.sjava 0 member name starts with capital letter
+test462.sjava 0 member name starts with underscore
+test463.sjava 1 member name is '_'
+test464.sjava 1 member name starts with a number
+test465.sjava 0 local variable name starts with capital letter
+test466.sjava 0 local variable name starts with underscore
+test467.sjava 1 local variable name is '_'
+test468.sjava 1 local variable name starts with a number
+test469.sjava 0 method name starts with capital letter
+test470.sjava 1 method name starts with underscore
+test471.sjava 1 method name starts with a number
+test472.sjava 0 member name with the same name as a method name
+test473.sjava 0 local variable name with the same name as a method name
+
+test474.sjava 1 method return with array element
+test475.sjava 0 method return with array element
+test476.sjava 1 method return with array element
+test477.sjava 0 method return with array element
+
+
+test501.sjava 0 complex test 1
+test502.sjava 0 complex test 2
+test503.sjava 1 complex test 3
+test504.sjava 1 complex test 4
+test505.sjava 0 complex test 5
+test506.sjava 0 complex test 6
+test507.sjava 0 complex test 7
+test508.sjava 0 complex test 8
+test509.sjava 1 complex test 9
+test510.sjava 0 complex test 10
+

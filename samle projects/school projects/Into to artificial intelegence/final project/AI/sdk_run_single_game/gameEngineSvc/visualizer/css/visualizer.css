@@ -1,0 +1,263 @@
+.container {
+    padding-top: 20px;
+}
+#gameWrapper {
+    position: relative;
+}
+#board {
+    border-collapse: collapse;
+}
+#board td {
+    height: 60px;
+    width: 60px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 3px solid white;
+}
+#board td span {
+    display: none;
+}
+
+div.boardWrapper {
+    float: left;
+    border: 1em solid black;
+}
+
+table.board tbody {
+    border: thick #000;
+    background-color: #626262;
+}
+
+[data-p="A1"] {
+    background:url("../pieces/ANUBIS_SILVER_BACK.png") no-repeat center;
+}
+[data-p="A2"] {
+    background:url("../pieces/ANUBIS_SILVER_RIGHT.png") no-repeat center;
+}
+[data-p="A3"] {
+    background:url("../pieces/ANUBIS_SILVER_FRONT.png") no-repeat center;
+}
+[data-p="A4"] {
+    background:url("../pieces/ANUBIS_SILVER_LEFT.png") no-repeat center;
+}
+
+[data-p="a1"] {
+    background:url("../pieces/ANUBIS_RED_BACK.png") no-repeat center;
+}
+[data-p="a2"] {
+    background:url("../pieces/ANUBIS_RED_RIGHT.png") no-repeat center;
+}
+[data-p="a3"] {
+    background:url("../pieces/ANUBIS_RED_FRONT.png") no-repeat center;
+}
+[data-p="a4"] {
+    background:url("../pieces/ANUBIS_RED_LEFT.png") no-repeat center;
+}
+
+
+
+[data-p="PH"] {
+    background:url("../pieces/PHARAOH_SILVER_BACK.png") no-repeat center;
+}
+[data-p="PH2"] {
+    background:url("../pieces/PHARAOH_SILVER_RIGHT.png") no-repeat center;
+}
+[data-p="PH3"] {
+    background:url("../pieces/PHARAOH_SILVER_FRONT.png") no-repeat center;
+}
+[data-p="PH4"] {
+    background:url("../pieces/PHARAOH_SILVER_LEFT.png") no-repeat center;
+}
+
+[data-p="ph1"] {
+    background:url("../pieces/PHARAOH_RED_BACK.png") no-repeat center;
+}
+[data-p="ph2"] {
+    background:url("../pieces/PHARAOH_RED_RIGHT.png") no-repeat center;
+}
+[data-p="ph"] {
+    background:url("../pieces/PHARAOH_RED_FRONT.png") no-repeat center;
+}
+[data-p="ph4"] {
+    background:url("../pieces/PHARAOH_RED_LEFT.png") no-repeat center;
+}
+
+
+[data-p="S1"] {
+    background:url("../pieces/SPHINX_SILVER_BACK.png") no-repeat center;
+}
+[data-p="S2"] {
+    background:url("../pieces/SPHINX_SILVER_RIGHT.png") no-repeat center;
+}
+[data-p="S3"] {
+    background:url("../pieces/SPHINX_SILVER_FRONT.png") no-repeat center;
+}
+[data-p="S4"] {
+    background:url("../pieces/SPHINX_SILVER_LEFT.png") no-repeat center;
+}
+
+[data-p="s1"] {
+    background:url("../pieces/SPHINX_RED_BACK.png") no-repeat center;
+}
+[data-p="s2"] {
+    background:url("../pieces/SPHINX_RED_RIGHT.png") no-repeat center;
+}
+[data-p="s3"] {
+    background:url("../pieces/SPHINX_RED_FRONT.png") no-repeat center;
+}
+[data-p="s4"] {
+    background:url("../pieces/SPHINX_RED_LEFT.png") no-repeat center;
+}
+
+
+
+[data-p="P2"] {
+    background:url("../pieces/PYRAMID_SILVER_BOTTOM_LEFT.png") no-repeat center;
+}
+[data-p="P3"] {
+    background:url("../pieces/PYRAMID_SILVER_TOP_LEFT.png") no-repeat center;
+}
+[data-p="P4"] {
+    background:url("../pieces/PYRAMID_SILVER_TOP_RIGHT.png") no-repeat center;
+}
+[data-p="P1"] {
+    background:url("../pieces/PYRAMID_SILVER_BOTTOM_RIGHT.png") no-repeat center;
+}
+
+[data-p="p2"] {
+    background:url("../pieces/PYRAMID_RED_BOTTOM_LEFT.png") no-repeat center;
+}
+[data-p="p3"] {
+    background:url("../pieces/PYRAMID_RED_TOP_LEFT.png") no-repeat center;
+}
+[data-p="p4"] {
+    background:url("../pieces/PYRAMID_RED_TOP_RIGHT.png") no-repeat center;
+}
+[data-p="p1"] {
+    background:url("../pieces/PYRAMID_RED_BOTTOM_RIGHT.png") no-repeat center;
+}
+
+
+[data-p="C1"] {
+    background:url("../pieces/SCARAB_SILVER_BOTTOM_LEFT.png") no-repeat center;
+}
+[data-p="C2"] {
+    background:url("../pieces/SCARAB_SILVER_TOP_LEFT.png") no-repeat center;
+}
+[data-p="C3"] {
+    background:url("../pieces/SCARAB_SILVER_TOP_RIGHT.png") no-repeat center;
+}
+[data-p="C4"] {
+    background:url("../pieces/SCARAB_SILVER_BOTTOM_RIGHT.png") no-repeat center;
+}
+
+[data-p="c1"] {
+    background:url("../pieces/SCARAB_RED_BOTTOM_LEFT.png") no-repeat center;
+}
+[data-p="c2"] {
+    background:url("../pieces/SCARAB_RED_TOP_LEFT.png") no-repeat center;
+}
+[data-p="c3"] {
+    background:url("../pieces/SCARAB_RED_TOP_RIGHT.png") no-repeat center;
+}
+[data-p="c4"] {
+    background:url("../pieces/SCARAB_RED_BOTTOM_RIGHT.png") no-repeat center;
+}
+
+
+.piece{
+    background-size: 60%;
+}
+
+.explosion{
+    width: 100px;
+    height: 100px;
+}
+#legend {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+}
+#legend a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#legend img {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+svg.visualizer {
+    width: 600px;
+    height: 480px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+
+}
+[for="speed"] {
+    float: right;
+}
+#logs {
+    float: right;
+    height: 365px;
+    overflow-y: hidden;
+    width: 40%;
+    margin-left: 20px;
+    border: 1px solid gray;
+}
+#logs li {
+    cursor: pointer;
+}
+#logs li.active {
+    border: blueviolet 1px solid;
+}
+#system {
+    float: left;
+    clear: both;
+    height: 200px;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px solid gray;
+}
+.progressBox {
+    width: 40%;
+    float: right;
+}
+#progress {
+    width: 100%;
+}
+#resume[disabled] {
+    display: none;
+}
+#pause[disabled] {
+    display: none;
+}
+.red {
+    color: red;
+}
+.silver {
+    color: gray;
+}
+#gameOver {
+    position: absolute;
+    background: white;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    padding: 30px;
+    border: 10px solid lightgoldenrodyellow;
+}
+#gameOver h1 {
+    float: left;
+}
+#gameOver #close {
+    float: right;
+}
+#gameOver pre {
+    clear: both;
+    overflow-y: scroll;
+    height: 80%;
+}

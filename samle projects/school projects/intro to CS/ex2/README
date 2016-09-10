@@ -1,0 +1,21 @@
+adirz
+
+Adir Zagury
+
+README for excersize number 2.
+
+Usage:
+After running ex2_square.py you can call the function
+square_printing(n) and put the size you want in N.
+After running ex2_rpsls.py you can run the function
+rpsls_play() to start playing
+
+Description:
+1.To build a rhombus in a square, depending on a given size.
+2.The second task is to make an elaborate extention of the rock-paper-scissors game.
+
+List of submitted files:
+README # This file
+ex2_quare.py # The rhombus in a square task
+ex2_rpsls.py # The rock-paper-scissors-lizard-spock game task
+

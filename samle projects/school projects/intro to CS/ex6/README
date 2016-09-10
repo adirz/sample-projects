@@ -1,0 +1,35 @@
+adirz
+
+Adir Zagury
+
+===============================
+=  README for ex6: oneliners  =
+===============================
+
+usage: python3.3 
+                import oneliners.py 
+                                    is_two_palindrome(pali)
+                                    uni_sort(unsorted1,unsorted2)
+                                    dot_product(vector1, vector2)
+                                    list_intersection(unsorted1,unsorted2)
+                                    list_difference(unsorted1,unsorted2)
+                                    random_string(length)
+                                    word_mapper(words)
+                                    gimme_a_value(f,x0)
+
+==================
+=  Description:  =
+==================
+
+8 methods that each have its own target, they are described in the functions
+to use this function I imported:
+randome to use for random_string, 
+re to use at word_mapper(words)
+
+
+=============================
+=  List of submitted files: =
+=============================
+
+README		This file
+oneliners.py    Contains all the methods

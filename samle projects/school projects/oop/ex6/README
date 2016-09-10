@@ -1,0 +1,172 @@
+adirz
+
+
+==============================================================================
+							 =  Login Details  =
+==============================================================================
+adirz
+Adir Zagury
+==============================================================================
+=============================  README  for ex6  ==============================
+==============================================================================
+
+==============================================================================
+							  =  Description  =
+==============================================================================
+
+In this project We build a program that prints out the files that pass filters
+in the correct order.
+
+==============================================================================
+								=   Usage   =
+==============================================================================
+
+Run in the command line:
+java oop.ex6.filescript.MyFileScript <source directory> <command file>
+Or any other way, run filescript.java sending -TWO- arguments, first: the
+source path in witch the files to filter, second the filters to use file path.
+
+==============================================================================
+						=  List of submitted files  =
+==============================================================================
+
+README 					This file.
+
+MyFileScript.java		The main file in which we run the program.
+
+Filters-----------------------------------------------------------------------
+
+Filter.java				The filter interface, every object that checks a file
+						to be passed or not implements it.
+						
+AllFilter.java			A filter that lets anything through.
+
+Not Filter.java			A filter, with a decoy, that check which files don't
+						go through.
+						
+MetaDataFilter.java		An abstract class that implements Filter. fathers all
+						meta-data type filter.
+
+ExecutableFilter.java	A meta-data type filter, allows only executables pass.
+
+HiddenFilter.java		A meta-data type filter, allows only hidden pass.
+
+WritableFilter.java		A meta-data type filter, allows only writable pass.
+
+NameFilter.java			An abstract class that implements Filter. fathers all
+						String matching type filter.
+						
+ContainFilter.java		A String matching type filter, checks if a file name
+						contains a certain string.
+
+MatchNameFilter.java	A String matching type filter, checks if a file name
+						is a certain string.
+
+PrefixFilter.java		A String matching type filter, checks if a file name
+						starts with a certain string.
+
+SuffixFilter.java		A String matching type filter, checks if a file name
+						ends with a certain string.
+						
+BetweenFilter.java		A filter that check if a file size is between two
+						parameters.
+						
+SizeFilter.java			A filter that checks if the file is bigger / smaller
+						than chosen size.
+						
+FilterFactory.java		A static class, that creates the appropriate type of
+						filter according to the filter name and variables.
+
+Orders------------------------------------------------------------------------
+
+Order.java				An abstract class that stores the order of files as we
+						wish it. Father all order types.
+						
+AbsOrder.java			An order type class, sort the by their absolute path.
+						Alphabetical order.
+
+SizeOrder.java			An Order type class that sorts the files by their
+						size. Smallest to largest.
+						
+TypeOrder.java			An Order type class that sorts the files by their
+						type. Alphabetical order.
+						
+ReverseOrder.java		An Order type class that sorts the files by a given
+						different order, but backwards.
+
+OrderFactory.java		A static class, that creates the appropriate type of
+						order according to the order name and variables given.
+						
+Sections----------------------------------------------------------------------
+
+Section.java			A class that holds filter and order of each section in
+						the command file.
+						
+SectionsFactory.java	A class that converts a the given command file (as
+						ArrayList<String> lines) to section array.
+						
+specialExceptions-------------------------------------------------------------
+
+ExceptionHolder.java	An exception that holds an array of exceptions.
+
+TypeOneException.java	get thrown at each type one exception, as asked.
+
+TypeTwoException.java	get thrown at each type two exception, as asked.
+
+==============================================================================
+						   =  Design explanation  =
+==============================================================================
+
+Work flow chart:
+
+https://drive.google.com/file/d/0ByandE2YZqBycVNPU25sUktxMjA/edit?usp=sharing
+
+I also added to the folder.
+
+In words:
+at MyFilesScript I convert the folder location into an Array List of file, and
+the command file into an ArrayList of Strings. I send the command string to
+the SectionFactory, where it breaks it up to sections by steps, each time it
+completes a round it creates a new section and adds it to a list it is later
+returns. The creation of a section is done by sending the lines to a Section
+constructor. the constructor sends each line to the matched factory, where
+they sends back the correct filter/order. They do this by breaking down the
+lines to names of filter/order and variables. Using a hash-table and an array
+of builders it converts the name into a number, and the number into a builder,
+where it builds the matching filter\order.
+After all this we have an array of sections and an array of file. We run on
+each section, first printing it warnings. Second- we check on all the files if
+they pass the filter, and if so, we add it to the order. The order checks the
+place to put the files in his own array which he holds. After running on all
+the files we print the array in the order, in the order it kept.
+
+
+
+==============================================================================
+							  =   Questions   =
+==============================================================================
+
+1.Describe the design of your project: + 2.How did you implement your design?
+	Explained above.
+	
+3.How did you handle the different errors?
+	Type one errors:
+		They got thrown, dealt with and closed as soon as I could. Each step
+		in the line could throw an exception and I added it to the warning
+		toll in the exceptionHolder. to each exception I added it line of
+		error, to be easily read when reaching the top. While that, at the
+		very bottom, as soon as this error occurred, it was fixed to a
+		workable solution.
+	Type two errors:
+		Stopped everything as soon as it arrived throwing it up until the
+		program is done.
+		
+4.Which data structure did you used to sort your matched files?
+	I used ArrayList to hold the files in the Order variable. There I run on
+	it to sort as I added files.
+
+==============================================================================
+							=  Special Comments  =
+==============================================================================
+
+

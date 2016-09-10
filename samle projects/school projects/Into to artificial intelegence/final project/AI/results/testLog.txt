@@ -1,0 +1,333 @@
+﻿*TEST*
+lowPopGenUserbotas white vs lowPopGenUserbot as red: 1.0
+lowPopGenUserbotas white vs lowPopGenUserbot as red: 0.5
+lowPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopGenUserbot as red: 0.0
+lowPopGenUserbotas white vs lowPopSHCUserbot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCUserbot as red: 0.0
+lowPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs planned UserBot as red: 0.5
+lowPopGenUserbotas white vs planned HeuristicBor as red: 1.0
+lowPopGenUserbotas white vs lowPopGenUserbot as red: 0.5
+lowPopGenUserbotas white vs lowPopGenUserbot as red: 0.0
+lowPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCUserbot as red: 0.0
+lowPopGenUserbotas white vs lowPopSHCUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCUserbot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCUserbot as red: 0.0
+lowPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopGenUserbotas white vs planned UserBot as red: 1.0
+lowPopGenUserbotas white vs planned HeuristicBor as red: 0.5
+highPopGenUserbotas white vs lowPopGenUserbot as red: 1.0
+highPopGenUserbotas white vs lowPopGenUserbot as red: 0.5
+highPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+highPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+highPopGenUserbotas white vs lowPopSHCUserbot as red: 0.5
+highPopGenUserbotas white vs lowPopSHCUserbot as red: 0.0
+highPopGenUserbotas white vs highPopSHCUserbot as red: 0.5
+highPopGenUserbotas white vs highPopSHCUserbot as red: 0.5
+highPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs highPopGenHeubot as red: 0.5
+highPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs highPopSHCHeubot as red: 0.5
+highPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs planned UserBot as red: 1.0
+highPopGenUserbotas white vs planned HeuristicBor as red: 0.5
+highPopGenUserbotas white vs lowPopGenUserbot as red: 0.5
+highPopGenUserbotas white vs lowPopGenUserbot as red: 0.0
+highPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+highPopGenUserbotas white vs highPopGenUserbot as red: 1.0
+highPopGenUserbotas white vs lowPopSHCUserbot as red: 0.0
+highPopGenUserbotas white vs lowPopSHCUserbot as red: 1.0
+highPopGenUserbotas white vs highPopSHCUserbot as red: 0.0
+highPopGenUserbotas white vs highPopSHCUserbot as red: 0.5
+highPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs highPopGenHeubot as red: 1.0
+highPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopGenUserbotas white vs highPopSHCHeubot as red: 0.5
+highPopGenUserbotas white vs planned UserBot as red: 0.0
+highPopGenUserbotas white vs planned HeuristicBor as red: 1.0
+lowPopSHCUserbotas white vs lowPopGenUserbot as red: 0.0
+lowPopSHCUserbotas white vs lowPopGenUserbot as red: 1.0
+lowPopSHCUserbotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCUserbotas white vs highPopGenUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCUserbotas white vs highPopSHCUserbot as red: 0.5
+lowPopSHCUserbotas white vs highPopSHCUserbot as red: 0.0
+lowPopSHCUserbotas white vs lowPopGenHeubot as red: 0.5
+lowPopSHCUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs planned UserBot as red: 0.0
+lowPopSHCUserbotas white vs planned HeuristicBor as red: 1.0
+lowPopSHCUserbotas white vs lowPopGenUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopGenUserbot as red: 1.0
+lowPopSHCUserbotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCUserbotas white vs highPopGenUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCUserbotas white vs highPopSHCUserbot as red: 1.0
+lowPopSHCUserbotas white vs highPopSHCUserbot as red: 1.0
+lowPopSHCUserbotas white vs lowPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs lowPopGenHeubot as red: 0.5
+lowPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs highPopSHCHeubot as red: 0.5
+lowPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+lowPopSHCUserbotas white vs planned UserBot as red: 0.0
+lowPopSHCUserbotas white vs planned HeuristicBor as red: 1.0
+highPopSHCUserbotas white vs lowPopGenUserbot as red: 0.5
+highPopSHCUserbotas white vs lowPopGenUserbot as red: 1.0
+highPopSHCUserbotas white vs highPopGenUserbot as red: 0.5
+highPopSHCUserbotas white vs highPopGenUserbot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCUserbot as red: 0.0
+highPopSHCUserbotas white vs lowPopSHCUserbot as red: 0.5
+highPopSHCUserbotas white vs highPopSHCUserbot as red: 0.5
+highPopSHCUserbotas white vs highPopSHCUserbot as red: 1.0
+highPopSHCUserbotas white vs lowPopGenHeubot as red: 0.5
+highPopSHCUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs planned UserBot as red: 0.5
+highPopSHCUserbotas white vs planned HeuristicBor as red: 1.0
+highPopSHCUserbotas white vs lowPopGenUserbot as red: 0.0
+highPopSHCUserbotas white vs lowPopGenUserbot as red: 1.0
+highPopSHCUserbotas white vs highPopGenUserbot as red: 0.5
+highPopSHCUserbotas white vs highPopGenUserbot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCUserbot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCUserbot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCUserbot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCUserbot as red: 1.0
+highPopSHCUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs lowPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopGenHeubot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs lowPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCUserbotas white vs planned UserBot as red: 1.0
+highPopSHCUserbotas white vs planned HeuristicBor as red: 1.0
+lowPopGenHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenHeubotas white vs lowPopGenHeubot as red: 1.0
+lowPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs lowPopSHCHeubot as red: 1.0
+lowPopGenHeubotas white vs lowPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs planned UserBot as red: 0.0
+lowPopGenHeubotas white vs planned HeuristicBor as red: 0.5
+lowPopGenHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopGenUserbot as red: 0.5
+lowPopGenHeubotas white vs highPopGenUserbot as red: 0.5
+lowPopGenHeubotas white vs lowPopSHCUserbot as red: 0.5
+lowPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopGenHeubotas white vs highPopSHCUserbot as red: 0.5
+lowPopGenHeubotas white vs lowPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs lowPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopGenHeubotas white vs lowPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs lowPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopGenHeubotas white vs planned UserBot as red: 0.5
+lowPopGenHeubotas white vs planned HeuristicBor as red: 0.5
+highPopGenHeubotas white vs lowPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs lowPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs highPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs highPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs lowPopSHCUserbot as red: 0.5
+highPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopGenHeubotas white vs highPopSHCUserbot as red: 0.5
+highPopGenHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopGenHeubotas white vs lowPopGenHeubot as red: 0.5
+highPopGenHeubotas white vs lowPopGenHeubot as red: 1.0
+highPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+highPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+highPopGenHeubotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenHeubotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenHeubotas white vs highPopSHCHeubot as red: 1.0
+highPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+highPopGenHeubotas white vs planned UserBot as red: 0.5
+highPopGenHeubotas white vs planned HeuristicBor as red: 0.5
+highPopGenHeubotas white vs lowPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs lowPopGenUserbot as red: 0.0
+highPopGenHeubotas white vs highPopGenUserbot as red: 0.5
+highPopGenHeubotas white vs highPopGenUserbot as red: 0.0
+highPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopGenHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopGenHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopGenHeubotas white vs highPopSHCUserbot as red: 0.5
+highPopGenHeubotas white vs lowPopGenHeubot as red: 1.0
+highPopGenHeubotas white vs lowPopGenHeubot as red: 1.0
+highPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+highPopGenHeubotas white vs highPopGenHeubot as red: 0.5
+highPopGenHeubotas white vs lowPopSHCHeubot as red: 1.0
+highPopGenHeubotas white vs lowPopSHCHeubot as red: 0.5
+highPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+highPopGenHeubotas white vs highPopSHCHeubot as red: 0.5
+highPopGenHeubotas white vs planned UserBot as red: 0.5
+highPopGenHeubotas white vs planned HeuristicBor as red: 1.0
+lowPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopSHCUserbot as red: 0.5
+lowPopSHCHeubotas white vs lowPopGenHeubot as red: 0.5
+lowPopSHCHeubotas white vs lowPopGenHeubot as red: 1.0
+lowPopSHCHeubotas white vs highPopGenHeubot as red: 1.0
+lowPopSHCHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopSHCHeubotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopSHCHeubotas white vs highPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs planned UserBot as red: 0.0
+lowPopSHCHeubotas white vs planned HeuristicBor as red: 1.0
+lowPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+lowPopSHCHeubotas white vs lowPopGenHeubot as red: 1.0
+lowPopSHCHeubotas white vs lowPopGenHeubot as red: 1.0
+lowPopSHCHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopSHCHeubotas white vs highPopGenHeubot as red: 0.5
+lowPopSHCHeubotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs lowPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs highPopSHCHeubot as red: 0.5
+lowPopSHCHeubotas white vs highPopSHCHeubot as red: 1.0
+lowPopSHCHeubotas white vs planned UserBot as red: 0.0
+lowPopSHCHeubotas white vs planned HeuristicBor as red: 1.0
+highPopSHCHeubotas white vs lowPopGenUserbot as red: 1.0
+highPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.5
+highPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopGenHeubot as red: 1.0
+highPopSHCHeubotas white vs lowPopGenHeubot as red: 1.0
+highPopSHCHeubotas white vs highPopGenHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopGenHeubot as red: 1.0
+highPopSHCHeubotas white vs lowPopSHCHeubot as red: 1.0
+highPopSHCHeubotas white vs lowPopSHCHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCHeubotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCHeubotas white vs planned UserBot as red: 0.0
+highPopSHCHeubotas white vs planned HeuristicBor as red: 1.0
+highPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopGenUserbot as red: 0.5
+highPopSHCHeubotas white vs highPopGenUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs highPopSHCUserbot as red: 0.0
+highPopSHCHeubotas white vs lowPopGenHeubot as red: 0.0
+highPopSHCHeubotas white vs lowPopGenHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopGenHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopGenHeubot as red: 1.0
+highPopSHCHeubotas white vs lowPopSHCHeubot as red: 0.5
+highPopSHCHeubotas white vs lowPopSHCHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopSHCHeubot as red: 0.5
+highPopSHCHeubotas white vs highPopSHCHeubot as red: 1.0
+highPopSHCHeubotas white vs planned UserBot as red: 0.0
+highPopSHCHeubotas white vs planned HeuristicBor as red: 0.5
+planned UserBotas white vs lowPopGenUserbot as red: 0.5
+planned UserBotas white vs lowPopGenUserbot as red: 0.5
+planned UserBotas white vs highPopGenUserbot as red: 1.0
+planned UserBotas white vs highPopGenUserbot as red: 0.5
+planned UserBotas white vs lowPopSHCUserbot as red: 0.5
+planned UserBotas white vs lowPopSHCUserbot as red: 0.0
+planned UserBotas white vs highPopSHCUserbot as red: 0.5
+planned UserBotas white vs highPopSHCUserbot as red: 0.5
+planned UserBotas white vs lowPopGenHeubot as red: 1.0
+planned UserBotas white vs lowPopGenHeubot as red: 1.0
+planned UserBotas white vs highPopGenHeubot as red: 1.0
+planned UserBotas white vs highPopGenHeubot as red: 1.0
+planned UserBotas white vs lowPopSHCHeubot as red: 1.0
+planned UserBotas white vs lowPopSHCHeubot as red: 1.0
+planned UserBotas white vs highPopSHCHeubot as red: 1.0
+planned UserBotas white vs highPopSHCHeubot as red: 1.0
+planned UserBotas white vs planned UserBot as red: 0.5
+planned UserBotas white vs planned HeuristicBor as red: 0.5
+planned HeuristicBoras white vs lowPopGenUserbot as red: 0.0
+planned HeuristicBoras white vs lowPopGenUserbot as red: 0.0
+planned HeuristicBoras white vs highPopGenUserbot as red: 0.0
+planned HeuristicBoras white vs highPopGenUserbot as red: 0.0
+planned HeuristicBoras white vs lowPopSHCUserbot as red: 0.0
+planned HeuristicBoras white vs lowPopSHCUserbot as red: 0.0
+planned HeuristicBoras white vs highPopSHCUserbot as red: 0.5
+planned HeuristicBoras white vs highPopSHCUserbot as red: 0.0
+planned HeuristicBoras white vs lowPopGenHeubot as red: 1.0
+planned HeuristicBoras white vs lowPopGenHeubot as red: 0.5
+planned HeuristicBoras white vs highPopGenHeubot as red: 1.0
+planned HeuristicBoras white vs highPopGenHeubot as red: 1.0
+planned HeuristicBoras white vs lowPopSHCHeubot as red: 1.0
+planned HeuristicBoras white vs lowPopSHCHeubot as red: 1.0
+planned HeuristicBoras white vs highPopSHCHeubot as red: 1.0
+planned HeuristicBoras white vs highPopSHCHeubot as red: 1.0
+planned HeuristicBoras white vs planned UserBot as red: 0.0
+planned HeuristicBoras white vs planned HeuristicBor as red: 0.5
+
+
+
+best: highPopSHCUserbot
+score: 10.5
+
+grades:
+{"myPossibleMoves":[11.243059720991758,0.045318949782516625],"opponentPossibleMoves":[5.336696899720095,0.3214968912463272],"myPharaohDefense":[19.866567812507416,0.43739961494967516],"enemyPharaohDefense":[3.742149585538661,0.5704309717865506],"enemyNum":[41.55231973193193,121.55321603013395,1.9599920633487156],"alliesNum":[50.5991597179322,1.0866689283460538,0.1997924225581787],"powerEnemy":[0.1700037628527013,0.24269407752853572,0.18441651416855298],"powerAllies":[1.2704428716346614,2.4561023159480033,0.19412649711710472]}

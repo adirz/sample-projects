@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="AIlib">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Dropbox/AI/Java/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Dropbox/AI/Java/src/main/java" />
+      <root url="file://$USER_HOME$/Dropbox/AI/Java/libs" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Dropbox/AI/Java/libs" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Dropbox/AI/Java/libs" recursive="false" type="SOURCES" />
+  </library>
+</component>

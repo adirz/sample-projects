@@ -1,0 +1,103 @@
+adirz
+
+Adir Zagury
+
+
+=============================================
+---------README ex9 - Huffman Coding---------
+=============================================
+
+usage:	
+
+python3.3 hzip.py [-h] [-o OUTFILE] [-s SUFFIX] [-f] [-l LEVEL] [-a] infile
+
+python3.3 hunzip.py [-h] [-o OUTFILE] [-s SUFFIX] [-S OUTSUFFIX] [-f] infile
+
+
+=============================================
+---------------Description:------------------
+=============================================
+
+hzlib.py
+	symbol_count :
+			converts data into a counter
+	make_huffman_tree:
+			converts a counter into a huffman tree. A huffman tree
+			is tuples inside of tuples, recursivly, representing
+			the commonness of each note
+	build_codebook:
+			converts a huffnman tree into a codebook, which maps
+			each note into a tuple holding the length of the code
+			representation and the code
+	build_canonical_codebook:
+			Return a canonical coding table, from a codebook. The
+			canonical coding table holdes 256 notes, each note we
+			use is in the index of its value. Notes' values are
+			given by their commonness.
+			The first character receives coding with the same
+			length where it all zeros. Each character gets the code
+			of the previous character in the series, plus one
+			(adding value, not a bit concatenation). If the
+			character encoding length is longer than the length of 
+			previous character encoding, after adding one, there 
+			concatenate zeros right to the desired length encoding
+	build_decodebook:
+			Maps the bit sequance into its corresponding value
+	compress:
+			Returns iterator that goes through the bits of the
+			encoding of the corpus ‪by the table codebook.
+			Iterator's output is 0 or 1 as int values.
+	decompress:
+			Returns iterator that goes through the restoration of
+			the original character sequence from a the encoded 
+			sequence of bits using the recovery ‪table decodebook.
+	pad:
+			Return an iterator which goes through each 8 bits and
+			returns the integer value of it. After reaching the
+			last bits (under 8) it adds 1 and zero to reach 8 and
+			returns its value.
+	unpad:
+			Recieves "pad" output, and returns an iterator which
+			returns its input.
+	join:
+			Returns an iterator which returns the bit sequance of
+			a canonical codebook and than the data
+	split:
+			Recieves "join" output, and returns an iterator which
+			returns its input.
+
+hzip.py 
+	compress_bin :
+			Recieves binary data and compress it using functions
+			in hzlib.py
+	compress_file:	
+			Recieve file name, output file name maximum level of
+			compression, and if to compress till the maximum level
+			has reached. It than reads the file, compresses it and
+			saves it to the output file
+hunzip.py
+
+
+=============================================
+-----------------Questions:------------------
+=============================================
+
+‫מדוע כיווץ צורך זכרון רב יותר מאשר פתיחה )‪?(decompression‬‬
+Answer:
+In compression you need to create a codebook, but in decompression all you
+need is to use the one given to you.
+
+‫איך ניתן לכווץ ללא שימוש רב בזכרון?‬
+Answer:
+By compressing in a way that cause lose of inforamtion, instead of coding what
+you have.
+
+
+=============================================
+-------------------Files:--------------------
+=============================================
+
+README		- This file
+hzlib.py	- The compressing functions
+hzip.py		- The main method to compress a file
+hunip.py	- The main method to decompress a file

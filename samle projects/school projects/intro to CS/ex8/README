@@ -1,0 +1,265 @@
+adirz
+
+Adir Zagury
+
+=============================================
+README ex8 - Hash functions & Data structures
+=============================================
+
+usage: There is no main function
+
+=============================================
+---------------Description:------------------
+=============================================
+
+sllist_utils.py
+    merge_lists
+	Merges two sorted (in ascending order) lists into one new sorted list in
+    	an ascending order. The resulting new list is created using new nodes
+    	(copies of the nodes of the given lists). Assumes both lists are sorted 	in ascending order. The original lists should not be modified.
+
+    contains_cycle
+    	Checks if the given list contains a cycle.
+    	A list contains a cycle if at some point a Node in the list points to
+    	a Node that already appeared in the list. Note that the cycle does not
+    	necessarily contain all the nodes in the list. The original list should
+    	not be modified.
+    	Returns true if the list contains a cycle
+	I used my variation on Floyd's method of cycle detection
+
+    reverse
+    	Reverses the given list (so the head becomes the last element, and every
+    	element points to the element that was previously before it).
+
+    is_palindrome
+    	Checks if the given list is a palindrome. 
+    	Returns true if the list is a palindrome
+
+    have_intersection
+    	Checks if the two given lists intersect.
+    	
+	because they don't have cycles I can know that if they intersect they
+    	both reach the same point at their end
+
+    get_item
+    	Returns the k'th element from of the list.
+    	If k > list_size returns None, if k<0 returns the k element from the end.
+          
+    next_by
+	return the node which is "howmuch" times next
+
+    slice
+	Returns a new list after slicing the given list from start to stop
+    	with a step.
+    	Imitates the behavior of slicing regular sequences in python.
+
+    merge_sort
+    	Sorts the given list using the merge-sort algorithm. I used O(1) space
+
+skipi_List:
+    __init__
+	Constructs an empty SkipiList.
+
+    add_first
+	Adds an item to the beginning of a list.
+
+    remove_first
+	Removes the first Node from the list and return its data.
+        Returns that data of the removed node
+
+    add_last
+        Adds an item to the end of a list.
+        data - the item to add
+
+    remove_last
+	Removes the last Node from the list and return its data.
+        The data of the removed node
+
+    remove_node
+	Removes a given Node from the list, and returns its data.
+        Assumes the given node is in the list.
+
+    __getitem__
+	Returns the data of the k'th item of the list.
+        If k is negative return the data of k'th item from the end of the list.
+
+=============================================
+-------------list of files-------------------
+=============================================
+
+README
+sllist_utils.py
+skipi_list.py
+
+=============================================
+-----Part one Hash functions questions-------
+=============================================
+
+***How each function maps items to integers:***
+
+h0:
+It maps each key to the index of zero
+h1:
+It maps each key to the reminder of the size of the table of the unicode code
+ of the first letter of the key
+h2:
+It maps each key to the reminder of the size of the table of the unicode code
+sum of the key
+h3:
+It maps each key to the reminder of the size of the table of the unicode code
+sum of the key but the value is multplied by 128 each time before adding the
+new unicode code
+h4:
+It maps each key to a random number in the range of the table size
+h5:
+The function converts hashable key into string and than, using the str_to_int
+function, into int. the str_to_int converts into int by giving each char a
+unicode code, than matching the diffrence between it and the binary code of
+the value so far, moved 4 slots in its binary code. The matching is done by
+making a new value to the old one out of binary like so: on each place in the
+binary slot if one is 0 and an other is 1 it puts 1, otherwise it puts 0.
+than it returns the reminder of the integer of the last value in the size of
+the table
+h6:
+the function creates a value whitch is 7 slots move in binary to the unicode 
+code of the first charechter in the hash key, than, for each charechter in the
+key, it multply the value so far by 1000003 and doing the spacial binary match
+I explaind in h5, witch is now the new value. than it does the special match
+of the value and the length of the key, witch is now the new value.
+In the end it return the reminder of the value and the size of the table
+h7:
+It maps the key into an index value of the reminder of the md5 algorythim in the
+base of 16
+h8:
+It maps the key into an index value of the reminder of the sha1 algorythim in the
+base of 16
+h9:
+Maps the key to the reminder of the built-in python hash function
+
+
+***Whitch function is the best? for what type of data?***
+
+For intigers the best function is h5 because it only gets the reminder of 
+the integer in the size of the table so they are devides equally across the
+table (statisticlly) which means minimum number of collisions
+Otherwise the built-in python hash function is the best, (obviously, there's
+a reason it is the built in one) because **********************************
+
+
+***What is the impact of different ratios of M and N on the effectiveness of
+the functions?***
+
+When M equal N, the size of the table is the same as the number of elements, 
+so the number of collisions is, depending on the function and input, between 0
+and the number of elements.
+when M is greater then N, than, mostly, there are much fewer collisions so it
+will retrieve the elements faster, but the hash table will take more
+space.
+When M is smaller than N, then there are more collisions and you need to
+search for the elements between those in the same spot, so retrieving the
+element is slower, on the other hand, it uses less space
+
+
+***Why should the hash table size be a prime number? Can you see difference
+when using a prime number?***
+
+Because normally the distrebution is not even between all values before doing
+mod to fit the table size and cluster in cycles. Then when you do mod with a 
+non-prime number it will cycle around the greatest common divider between the
+table size and the cycle size and creates clusters. When the size
+of the table is a prime number than the greatest common divider is the prime
+itself, causing a much bigger cycle and less collisions.
+
+
+***Explain the advantages and drawbacks of each of the functions.***
+
+h0:
+Advantages:
+Indexing a key takes almost no time at all
+Drawbacks:
+Has the maximum number of collisions possible - 100% so retrieving the elements
+back from the hash table takes a lot of time. Takes a lot of time to insert 
+items to table.
+
+h1:
+Advantages:
+Faster than h0 in putting elements in table. Create index quickly.
+Drawbacks:
+Still high number of collisions, making it slow to retrieve elements.
+
+h2:
+Advantages:
+Lower than h1 in number of collisions, so retreiving elements is faster
+Drawbacks:
+Takes a lot of time to find index when the key is a long String.
+
+
+h3:
+Advantages:
+Low number of collisions, so retreiving elements is faster
+Drawbacks:
+Takes a lot of time to find the hash key for long strings.
+
+h4:
+Advantages:
+Quick to index keys, very low number of collisions, very fast when the amount
+size of the table is very big
+Drawbacks:
+It is completly useless, there is no way to retrieve the elements by hash key
+so there's a need to search the whole table
+
+h5:
+Advantages:
+Finds the index quickly for integers keys.
+low number of collisions
+Drawbacks:
+Slow for keys that are not integer
+
+h6:
+Advantages:
+Have a very low number of collisions
+Drawbacks:
+Very slow in putting elements into the table
+
+h7:
+Advantages:
+Low number of collisions
+Drawbacks:
+Reletivly slow in inputing elements into the table
+
+h8:
+Advantages:
+Low number of collisions
+Drawbacks:
+Reletivly slow in inputing elements into the table
+
+h9
+Advantages:
+Fast in indexing a key and inputing an element into the table. Very low number
+of collisions.
+Drawbacks:
+None, but Chuck Norris is faster
+
+
+=============================================
+------------Part Two complexity--------------
+=============================================
+
+           	 Function   |     using Skipilist
+
+merge_lists:	  O(n)      |     O(n)
+
+contains_cycle:	  O(n)      |     O(1)
+
+reverse:      	  O(n)      |     O(n)
+
+is_palindrome:	  O(n^2)    |     O(n)
+
+have_intersection:O(n)      |     O(n)
+
+get_item:	  O(n)      |     O(k)
+
+merge_sort:       O(nlog(n))|     O(nlog(n))
+
+
+

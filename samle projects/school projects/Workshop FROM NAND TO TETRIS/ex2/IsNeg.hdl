@@ -1,0 +1,13 @@
+/**
+ *	return 1 if the number is negative, 0 otherwise
+ */
+CHIP IsNeg {
+    IN  
+        in[16];
+
+    OUT
+	out;
+
+    PARTS:
+	Or(a = false, b = in[15], out = out);
+}

@@ -1,0 +1,7 @@
+{
+    "gameEngineSvc": {
+        "port": "8080",
+        "botMoveTimeout" : 600000,
+        "isInLocalMode" : true
+    }
+}

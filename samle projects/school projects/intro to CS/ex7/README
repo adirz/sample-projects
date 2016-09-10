@@ -1,0 +1,31 @@
+adirz
+
+Adir Zagury
+
+==================================
+=  README for ex7: Tweet Trends  =
+==================================
+
+usage:	tweet.py is the class for the type tweet
+	each function can be called to be used
+
+
+==================
+=  Description:  =
+==================
+
+methods to analyze the tweets, by finding where they came from,
+the words they contain giving sentimental value to each word,
+and thus to the tweet, the average sentimental value to each state,
+finding where a word is most used and grouping them by state or by hour
+
+
+=============================
+=  List of submitted files: =
+=============================
+
+README-------------------This file
+tweet.py-----------------Tweet class, this contain the variable type
+geo_tweet_tools.py-------Tools to connect between tweets and states
+nation_mood.py-----------Giving sentiment to tweets, finding the most talktive
+                         one and grouping by hour

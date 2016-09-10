@@ -1,0 +1,40 @@
+adirz
+
+Adir Zagury
+
+================================
+=  README for ex5: Recurrsion  =
+================================
+
+usage: python3.3 
+
+           NonRecursiveMystery.py
+               mystery_computation(number)
+
+           GetToTheZero.py
+               is_solvable(start,board)
+
+           AlignDNA.py
+               get_alignment_score(dna1, dna2, match, mismatch, gap)
+               get_best_alignment_score(dna1, dna2, match, mismatch, gap)
+
+==================
+=  Description:  =
+==================
+
+3 files that practice recurrsion
+
+
+=============================
+=  List of submitted files: =
+=============================
+
+README		              This file
+NonRecursiveMystery.py        An iterable way instead of the recurrsive one
+GetToTheZero.py               A file with function That helps James Bond go
+                              through the halways/ Maze-like solver
+AlignDNA.py                   Finds the best alignment of DNA, or gives the
+                              score of a given alignment
+
+
+

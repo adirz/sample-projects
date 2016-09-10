@@ -1,0 +1,159 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Screen.jack
+
+/**
+ * Graphic screen library.
+ */
+class Screen {
+    static Array bitmap;
+    static int size;
+    static boolean white;
+    static boolean black;
+    static boolean current_color;
+
+    /** Initializes the Screen. */
+    function void init() {
+		let bitmap = 16384;
+		let size = 8192;
+		let white = false;
+		let black = true;
+		let current_color = black;
+
+		return;
+    }
+
+    /** Erases the whole screen. */
+    function void clearScreen() {
+		var int pixel_location;
+
+		let pixel_location = 0;
+		while ( pixel_location < size ) {
+		    let bitmap[pixel_location] = white;
+		}
+
+		return;
+    }
+
+    /** Sets the color to be used in further draw commands
+     *  where white = false, black = true. */
+    function void setColor(boolean b) {
+		let current_color = b;
+
+		return;
+    }
+
+    /** Draws the (x, y) pixel. */
+    function void drawPixel(int x, int y) {
+		var int location;
+		var int bit_to_paint;
+
+		let bit_to_paint = Math.getPower(x & 15);
+		let location = Math.multiply(y, 32) + Math.divide(x, 16);
+
+		if (current_color) {
+		    let bitmap[location] = bitmap[location] | bit_to_paint;
+		    return;
+		}
+		let bitmap[location] = bitmap[location] & ~bit_to_paint;
+
+		return;
+    }
+
+    /** Draws a line from (x1, y1) to (x2, y2). */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+		var int temp;
+		var int dx;
+		var int dy;
+		var int adyminusbdx; // |a| * |dy| - |b| * |dx|
+		var int a;
+		var int b;
+		var int positive_a;
+		var int positive_b;
+		var int direction_x;
+		var int direction_y;
+
+		if ( (x1 = x2) | (y1 = y2)) {
+		    do Screen.drawRectangle(x1, y1, x2, y2);
+		    return; 
+		}
+
+		let dx = x2 - x1;
+		let direction_x = Math.getSign(dx);
+		let dx = Math.abs(dx);
+		let dy = y2 - y1;
+		let direction_y = Math.getSign(dy);
+		let dy = Math.abs(dy);
+	
+		let a = 0;
+		let b = 0;
+		let positive_a = 0;
+		let positive_b = 0;
+		let adyminusbdx = 0;
+		while ( (~(dx < positive_a )) & (~(dy < positive_b )) ) {
+		    do Screen.drawPixel(x1 + a, y1 + b);
+		    if ( adyminusbdx < 0 ) {
+				let a = a + direction_x;
+				let positive_a = positive_a + 1;
+				let adyminusbdx = adyminusbdx + dy;
+		    }
+		    else {
+				let b = b + direction_x;
+				let positive_b = positive_b + 1;
+				let adyminusbdx = adyminusbdx - dx;
+		    }
+		}
+
+		return;
+    }
+
+    // there is some way to speed up doing horizontal lines...
+    /** Draws a filled rectangle where the top left corner
+     *  is (x1, y1) and the bottom right corner is (x2, y2). */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+		var int current_x;
+		var int current_y;
+		var int direction_x;
+		var int direction_y;
+
+		let current_x = x1;
+		let current_y = y1;
+		let direction_x = Math.getSign(x2 - x1);
+		let direction_y = Math.getSign(y2 - y1);
+
+		do Screen.drawPixel(current_x, current_y);
+		while ( ~(current_y = y2) ) {
+		    let current_y = current_y + direction_y;
+		    do Screen.drawPixel(current_x, current_y);
+		}
+		while ( ~(current_x = x2) ) {
+		    let current_x = current_x + direction_x;
+		    let current_y = y1;
+		    do Screen.drawPixel(current_x, current_y);
+		    while ( ~(current_y = y2) ) {
+		        let current_y = current_y + direction_y;
+		        do Screen.drawPixel(current_x, current_y);
+		    }
+		}
+
+		return;
+    }
+
+    /** Draws a filled circle of radius r around (cx, cy).*/
+    function void drawCircle(int cx, int cy, int r) {
+		var int dy;
+		var int r_squared;
+		var int temp;
+	
+		let dy = -r;
+		let r_squared = Math.multiply(r, r);
+		while ( ~(r < dy) ) {
+		    let temp = Math.sqrt(r_squared - Math.multiply(dy, dy));
+		    do Screen.drawLine(cx - temp, cy + dy, cx + temp, cy + dy);
+		    let dy = dy + 1;
+		}
+
+		return;
+    }
+}

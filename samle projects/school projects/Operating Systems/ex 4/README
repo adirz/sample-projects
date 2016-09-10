@@ -1,0 +1,23 @@
+adirz, katyac
+Adir Zagury (---------), katya Chirko (---------)
+EX: 4
+
+FILES:
+README			- This file
+Makefile		- Makefile to create the program
+Cache.cpp		- What represent the cache and blocks
+CachingFileSystem.cpp	- The main file to run the program
+Logger.cpp		- What responsible to write the log
+
+ANSWERS:
+1.	yes. the heap is saved on the memory and when we access the disk we need to first put it in
+	the memory so it saves us a step.
+2.	There is no one answer- the first one is faster to use blocks already in the cache, the
+	second one is faster to add new blocks to the cache.
+3.	Because in the more sophisticated algorythems are needed to be managed externally (LRU by
+	the proccessor) and are terminated and called by the clock. In the other hand, in our LFU
+	implementation we access the memory and the file block at the same place.
+4.	LRU better: runing a program that access the last x blocks and writing sometyhing to a new block
+	LFU better: reading some blocks a lot and some change always
+	none help: always reading new blocks (e.g.: playing a movie)
+5.	The ideal block size is 4k- because its our minimal reading size of files

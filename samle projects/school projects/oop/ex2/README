@@ -1,0 +1,69 @@
+adirz
+
+
+File description:
+
+MathTerm.java-
+Class represent the core of the math term.
+
+SimpleMathTerm.java-
+Class represent the math term, with precision and implementation of toLatex
+
+SumMathTerm.java-
+Class represent a sum of an expression which can be changed.
+
+BinaryMathTerm.java-
+Class holds two MathTerms.
+
+BracketsMathTerm.java-
+Class represent a math term with brackets
+
+SimpleBinaryOpMathTerm.java-
+Class represent two simple math terms whith a notation between them.
+
+FractionMathTerm.java-
+Class represent the division of two Terms
+
+
+
+Design:
+
+I had little design power, since it almost completly was set by the rules
+given in the assignment. However:
+
+MathTerm:
+Up in the hierarchy of every other class. Holds The basic vars (exponent,
+isBarred, isNegated) and functions as told.
+
+SimpleMathTerm:
+Derives from MathTerm class. Have vars (numeric, num, precisionDigits,
+setPrecision, term), and function as told, implement toLatex.
+
+SumMathTerm:
+Derives from MathTerm.
+
+BinaryMathTerm:
+Derives from MathTerm.
+
+BracketsMathTerm:
+Derives from MathTerm.
+
+SimpleBinaryOpMathTerm:
+Derives from BinaryMathTerm. If the sign is "*" it adds "\cdot", otherwise it
+adds the sign.
+
+FractionMathTerm:
+Derives from BinaryMathTerm.
+
+
+Implementation Issues:
+
+None
+
+Answers to Questions:
+1. It will derive from MathTerm, upon build it will recive a meth term and add
+"\int_"+a+"^"+b+" \!" + the latex of it+ "\mathrm{d}"+x. where a,b,x are also
+required.
+
+
+

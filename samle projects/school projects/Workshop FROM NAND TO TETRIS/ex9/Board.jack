@@ -1,0 +1,81 @@
+/**
+ * Implements a graphic XO Board.
+ */
+class Board {
+
+    // current player: true- X, false- O
+    field boolean player;
+    field int XWins;
+    field int OWins;
+
+    /** Constructs a new square with a given location and size. */
+    constructor Board new() {
+        let player = true;
+        let XWins = 0;
+		let OWins = 0;
+        do draw();
+        return this;
+    }
+
+    /** Draws the board on the screen. */
+    method void draw() {
+		do Output.printString("X wins: ");
+		do Output.printInt(XWins);
+		do Output.println();
+		do Output.printString("O wins: ");
+		do Output.printInt(OWins);
+        do Screen.setColor(true);
+        do Screen.drawLine(127, 63, 127, 255);
+        do Screen.drawLine(191, 63, 191, 255);
+        do Screen.drawLine(63, 127, 255, 127);
+        do Screen.drawLine(63, 191, 255, 191);
+        return;
+    }
+	
+    /** Deallocates the object's memory. */
+    method void dispose() {
+        do Screen.clearScreen();
+        do Memory.deAlloc(this);
+        return;
+    }
+	
+    /** Erases the square from the screen. */
+    method void newMatch() {
+        do Screen.clearScreen();
+		do Output.moveCursor(0,0);
+		do draw();
+        return;
+    }
+
+    /** Erases the  from the screen. */
+    method void play(int x, int y) {
+		var int a;
+		var int b;
+		let a = Math.multiply(64, x);
+		let b = Math.multiply(64, y);
+		if (player) {
+			do Screen.drawLine(71 + a, 71 + b, 119 + a, 119 + b);
+			do Screen.drawLine(71 + a, 119 + b, 119 + a, 71 + b);
+		}
+		if (~player) {
+			do Screen.drawCircle(95 + a, 95 + b, 24);
+			do Screen.setColor(false);
+			do Screen.drawCircle(95 + a, 95 + b, 23);
+			do Screen.setColor(true);
+		}
+		let player = ~player;
+        return;
+    }
+	
+    /** Erases the square from the screen. */
+    method void win(boolean winner) {
+		if (winner) {
+			let XWins = XWins + 1;
+		}
+		if (~winner) {
+			let OWins = OWins + 1;
+		}
+		do newMatch();
+        return;
+    }
+}

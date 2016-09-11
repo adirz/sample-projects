@@ -1,0 +1,71 @@
+katyac, adirz
+Katya Chirko (), Adir Zagury ()
+EX: 1
+
+FILES:
+osm.cpp
+
+ANSWERS:
+
+===============================================================================================================================
+
+Task 1
+
+The program does different things, depending if it gets one argument or not.
+
+If the program gets one arguement:
+The program creates a file and directory and deletes them.
+
+munmap(...) - frees memory at the current loation of the pointer of the size 31897 (sucseeds)
+mkdir("os", 0775) - create directory named "os" (sucseeds)
+mkdir("os/2015", 0775) - in "os", create directory named "2015" (sucseeds)
+brk(0) - checks where does the process's data memory ends
+brk(...) sets the program data space to the given pointer
+open(...) - creates a file named info, keep it as file 3 which can only be writen, not read.
+fstat(...) - checks if the file #3 status satisfies the modes given in the buffer.
+mmap(...) - maps a file (with read and write permissions) of size 65536 to location chosen by 
+the kernel. Returns a pointer to the location of the new file.
+write(...) - writes spaces of length 117 to file number 3 (the "info")
+close(3) - closes file #3 
+munmap(...) - frees the space allocated to file #3
+unlink("os/2015/info") - removes "info" for file system in directory
+rmdir("os/2015/") - removes "2015" directory
+rmdir("os/") - removes "os" directory
+
+
+If the program doesn't have one arguemrnt:
+The program prints out an error.
+
+munmap(...) - frees memory at the current loation of the pointer of the size 31897 (sucseeds)
+dup(2) - creates a refernce to the standard error file and keeps it as file #3.
+fcntl(...) - checks file #3 permissions and stattus flags. Returns value of status flags, 
+which are: 0_RDWR - open for reading and writing, 0_LARGEFILE - allows access to big files.
+brk(0) - checks where does the process's data (global variables) memory ends.
+brk(...) - sets the program data space to the given pointer from the lower one of the pointer 
+we got after the program called brk(0).
+fstat(...) - checks if the file #3 status satisfies the modes given in the buffer.
+mmap - maps a file (with read and write permissions) of size 4096 to location chosen by the kernel.
+ Returns a pointer to the location of the new file.
+lseek(...) - tries to set the offset to its current location plus 0 bytes (Illegal seek)
+write(...) - writes our error to the error file refference
+write(...) - continues on writing our error to the error file refference
+close(3) - closes the error file (file #3)
+munmap(0x7fd6a1399000, 4096) - free the memory of the file
+
+==================================================================================================
+
+Task 2
+
+1)
+If a program needs to acomplish a task in a given time, it might not be able to, as it was 
+interrupted by a different program in the middle.
+If two programs want to write to the same file, and one of them enter the que to the CPU by 
+interrupt, we don't know when it will be called and the result will not nescessarily be as we 
+wanted it.
+
+2)
+It is a BAD idea, programs will not be able to run "simultaniously" and we could not use time 
+cased programs.
+
+===============================================================================================================================
+

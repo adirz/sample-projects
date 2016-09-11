@@ -1,0 +1,36 @@
+katyac, adirz
+Katya Chirko (), Adir Zagury ()
+EX: 2
+
+FILES:
+README - this file
+uthread.h - the header file
+uthread.cpp - implementation of the threads library.
+Makefile
+
+
+===============================================================================================================================
+
+PART 2
+======
+
+1. 
+
+RR:
+Pro: Starvation free - there in no thread that remains pending for a long time.
+Con: The programmer has less freedom in schedualing management.
+
+PQ:
+Pro: More urgent preccesses will finish their run faster.
+Con: It may take very long time for some proccesses to start running.
+
+In our combined policy, on one hand the user can decide the priorities of the proccesses, so that the
+more urgent ones will finish faster, and on the other hand within the queue of each priority there is no
+starvation. 
+
+2.
+
+For example, a request to open a certain file - while the OS opens the file, the proccess will be blocked.
+
+==================================================================================================
+

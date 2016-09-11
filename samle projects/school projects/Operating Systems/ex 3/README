@@ -1,0 +1,19 @@
+adirz, katyac
+Adir Zagury , Katya Chirko
+EX: 3
+
+FILES:
+README	 	- This file.
+Block.cpp	- Class for each block, in the chain
+MinHeap.cpp	- A data structure to save the minimal unused number.
+blockchain.cpp	- An implementation of the given blockchain. to library
+
+ANSWERS:
+1.	because we don't syncornize the block attachments, when added, the same block can have mant kids,
+	until a new attach is made. the faster the attachment is made, the fewer blocks attach to each one,
+	because the chain got longer so they would attach to a different, higher, bllock.
+
+2.	If at each attachment we would attach it to the longest, and not to his original father.
+
+3.	In case two people initilialize the library at the same time, we didn't specified how to manage it.
+	Although, it is unlikley, we used mutex to make it safe.
